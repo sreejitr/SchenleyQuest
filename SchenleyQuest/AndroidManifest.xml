@@ -22,6 +22,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.schenleyquest.Questions"
+            android:label="@string/title_activity_questions" >
+        </activity>
+        <activity
+            android:name="com.example.schenleyquest.Options"
+            android:label="@string/title_activity_options" >
+        </activity>
     </application>
 
 </manifest>
