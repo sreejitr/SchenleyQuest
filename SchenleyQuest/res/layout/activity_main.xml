@@ -9,34 +9,24 @@
     tools:context=".Main" >
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/button1"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="76dp"
-        android:onClick="openOptions"
+        android:onClick="mainButtonClick"
         android:text="@string/options" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/button1"
         android:layout_marginTop="78dp"
         android:layout_toLeftOf="@+id/button1"
-        android:onClick="startGame"
+        android:onClick="mainButtonClick"
         android:text="@string/level_2" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button3"
-        android:layout_alignBottom="@+id/button3"
-        android:layout_toRightOf="@+id/button2"
-        android:onClick="startGame"
-        android:text="@string/level_3" />
 
     <Button
         android:id="@+id/button1"
@@ -45,7 +35,17 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="58dp"
-        android:onClick="startGame"
+        android:onClick="mainButtonClick"
         android:text="@string/level_1" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button2"
+        android:layout_alignBottom="@+id/button2"
+        android:layout_toRightOf="@+id/button1"
+        android:onClick="mainButtonClick"
+        android:text="@string/level_3" />
     	
 </RelativeLayout>

@@ -7,6 +7,8 @@ import android.view.Menu;
 import android.view.View;
 
 public class Main extends Activity {
+	
+	public static final String KEY_QUESTION = "com.example.myfirstapp.KeyQuestion";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,17 +24,32 @@ public class Main extends Activity {
         return true;
     }
     
-    /** Called when the user clicks the Level 1, Level 2 or Level 3 buttons */
-    public void startGame(View view) {
-        // Do something in response to button
-    	Intent intent = new Intent(this, Questions.class);
-    	startActivity(intent);
-    }
-    
-    public void openOptions(View view) {
-        // Do something in response to button
-    	Intent intent = new Intent(this, Options.class);
-    	startActivity(intent);
-    }    
+    /** Called when the user clicks the Level 1, Level 2, Level 3 buttons or the Settings button */
+    public void mainButtonClick(View view) {
+    	switch(view.getId())
+    	{
+    	case R.id.button1:
+    		Intent intent1 = new Intent(this, Questions.class);
+    		intent1.putExtra(KEY_QUESTION, "1");
+        	startActivity(intent1);
+        	break;
+    	case R.id.button2:
+    		Intent intent2 = new Intent(this, Questions.class);
+    		intent2.putExtra(KEY_QUESTION, "2");
+        	startActivity(intent2);
+        	break;
+    	case R.id.button3:
+    		Intent intent3 = new Intent(this, Questions.class);
+    		intent3.putExtra(KEY_QUESTION, "3");
+        	startActivity(intent3);
+        	break;
+        case R.id.button4:
+        	Intent intentSettings = new Intent(this, Options.class);
+        	startActivity(intentSettings);
+        	break;
+    	default:
+    	throw new RuntimeException("Unknow button ID");
+    	}
+    }   
     
 }
