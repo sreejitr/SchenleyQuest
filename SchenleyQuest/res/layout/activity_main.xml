@@ -12,7 +12,7 @@
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button1"
+        android:layout_alignLeft="@+id/button_Continue"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="76dp"
         android:onClick="mainButtonClick"
@@ -22,9 +22,9 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button1"
+        android:layout_below="@+id/button_Continue"
         android:layout_marginTop="78dp"
-        android:layout_toLeftOf="@+id/button1"
+        android:layout_toLeftOf="@+id/button_Continue"
         android:onClick="mainButtonClick"
         android:text="@string/level_2" />
 
@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/button2"
         android:layout_alignBottom="@+id/button2"
-        android:layout_toRightOf="@+id/button1"
+        android:layout_toRightOf="@+id/button_Continue"
         android:onClick="mainButtonClick"
         android:text="@string/level_3" />
     	

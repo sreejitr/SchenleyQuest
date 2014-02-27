@@ -48,7 +48,7 @@ public class Questions extends Activity {
 			    Contract.Questions.COLUMN_NAME_QUESTION
 			    };
 			
-			String selection = Contract.Questions.COLUMN_NAME_FEATURES_ID + "=?";
+			String selection = Contract.Questions.COLUMN_NAME_FEATURE_ID + "=?";
 			
 			String[] selectionArgs = {inputParameters[0]};
 

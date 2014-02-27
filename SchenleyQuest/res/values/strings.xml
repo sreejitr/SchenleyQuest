@@ -14,5 +14,9 @@
     <string name="submit_answer">Submit Answer</string>
     <string name="title_activity_hints">Hints</string>
     <string name="title_activity_transition_screen">TransitionScreen</string>
-
+	<string name="background_image">background image</string>
+	<string name="continue_button">Continue</string>
+	<string name="message_answer_right">Congratulations! You have won 10000 points</string>
+	<string name="message_answer_wrong">Incorrect Answer</string>
+	<string name="answer">Answer: </string>
 </resources>

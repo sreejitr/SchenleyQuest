@@ -9,6 +9,8 @@ import android.view.View;
 public class Main extends Activity {
 	
 	public static final String KEY_QUESTION = "com.example.myfirstapp.KeyQuestion";
+	
+	public static final String KEY_TRANSITION = "com.example.myfirstapp.KeyTransition";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +31,7 @@ public class Main extends Activity {
     	
     	switch(view.getId())
     	{
-    	case R.id.button1:
+    	case R.id.button_Continue:
     		Intent intent1 = new Intent(this, Questions.class);
     		intent1.putExtra(KEY_QUESTION, "1");
         	startActivity(intent1);

@@ -14,13 +14,13 @@ public Contract() {}
 	public static abstract class Questions implements BaseColumns {
 		public static final String TABLE_NAME = "questions";
 		public static final String COLUMN_NAME_QUESTION = "question";
-		public static final String COLUMN_NAME_FEATURES_ID = "feature_id";
+		public static final String COLUMN_NAME_FEATURE_ID = "feature_id";
 	}
 	
 	public static abstract class Options implements BaseColumns {
 		public static final String TABLE_NAME = "options";
 		public static final String COLUMN_NAME_QUESTION_ID = "question_id";
-		public static final String COLUMN_NAME_FEATURES_ID = "feature_id";
+		public static final String COLUMN_NAME_FEATURE_ID = "feature_id";
 		public static final String COLUMN_NAME_OPTION = "option";
 	}
 
