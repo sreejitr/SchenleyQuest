@@ -170,9 +170,11 @@ public class Questions extends Activity {
     		Intent intentSubmit = new Intent(this, TransitionScreen.class);
     		intentSubmit.putExtra(Main.KEY_TRANSITION, featureId + " " + qId + " " + correctAnswer + " " + Integer.toString((Integer.parseInt(featureId) + 1)));
         	startActivity(intentSubmit);
+        	this.finish();
         	break;
     	case R.id.hint_button:
     		Intent intentHint = new Intent(this, Hints.class);
+    		intentHint.putExtra(Main.KEY_HINT, featureId);
         	startActivity(intentHint);
         	break;
 

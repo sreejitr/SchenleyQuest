@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="46dp"
-        android:text="Large Text"
+        android:text="@string/large_text"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
@@ -25,6 +25,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="15dp"
+        android:onClick="backToMenu"
         android:text="@string/back_to_menu" />
 
     <TextView
@@ -34,7 +35,7 @@
         android:layout_above="@+id/button1"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="42dp"
-        android:text="TextView" />
+        android:text="@string/hello_world" />
 
     <ImageView
         android:id="@+id/imageView2"

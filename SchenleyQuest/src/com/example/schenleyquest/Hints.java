@@ -1,15 +1,22 @@
 package com.example.schenleyquest;
 
+
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
+import android.view.View;
 
 public class Hints extends Activity {
-
+	
+	String featureId = "";
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_hints);
+		String[] inputParameters = getIntent().getStringExtra(Main.KEY_HINT).split("\\s+");
+		featureId = inputParameters[0];
+		setContentView(R.layout.activity_hints);	
 	}
 
 	@Override
@@ -19,4 +26,21 @@ public class Hints extends Activity {
 		return true;
 	}
 
+	public void hintButtonClick(View view) {
+    	
+    	switch(view.getId())
+    	{
+    	case R.id.imageButton1:
+    		Intent intenthintText = new Intent(this, HintText.class);
+    		intenthintText.putExtra(Main.KEY_HINT, featureId);
+        	startActivity(intenthintText);
+        	break;
+    	case R.id.imageButton2:
+    		Intent intentDirectionHint = new Intent(this, DirectionHint.class);
+        	startActivity(intentDirectionHint);
+        	break;
+    	default:
+    	throw new RuntimeException("Unknown button ID");
+    	}
+	}
 }

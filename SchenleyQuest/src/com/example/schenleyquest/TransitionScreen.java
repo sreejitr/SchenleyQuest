@@ -153,12 +153,14 @@ public class TransitionScreen extends Activity {
 		{
 			Intent intent = new Intent(this, WinScreen.class);		
 			startActivity(intent);
+			this.finish();
 		}
 		else
 		{
 			Intent intent1 = new Intent(this, Questions.class);	
 			intent1.putExtra(Main.KEY_QUESTION, inputParameters[3]);		
-			startActivity(intent1);		
+			startActivity(intent1);
+			this.finish();
 		}
 		
     } 

@@ -12,6 +12,8 @@ public class Main extends Activity {
 	
 	public static final String KEY_TRANSITION = "com.example.myfirstapp.KeyTransition";
 	
+	public static final String KEY_HINT = "com.example.myfirstapp.KeyHint";
+	
 	public static final int TOTALSCORE = 0;
 	
     @Override
