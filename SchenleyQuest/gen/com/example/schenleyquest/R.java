@@ -26,25 +26,29 @@ public final class R {
         public static final int new_year_152044_640=0x7f020002;
     }
     public static final class id {
-        public static final int action_settings=0x7f080013;
+        public static final int action_settings=0x7f080017;
         public static final int button1=0x7f080001;
         public static final int button2=0x7f080002;
         public static final int button3=0x7f080003;
         public static final int button4=0x7f080000;
-        public static final int button_Continue=0x7f080010;
+        public static final int buttonMenu=0x7f08000f;
+        public static final int buttonProgress=0x7f08000d;
+        public static final int button_Continue=0x7f080014;
         public static final int hint_button=0x7f080004;
-        public static final int imageView1=0x7f08000c;
-        public static final int imageView2=0x7f080012;
+        public static final int imageView1=0x7f080010;
+        public static final int imageView2=0x7f080016;
         public static final int radioButton1=0x7f080007;
         public static final int radioButton2=0x7f080008;
         public static final int radioButton3=0x7f080009;
         public static final int radioButton4=0x7f08000a;
         public static final int radioOptions=0x7f080006;
         public static final int submit_button=0x7f08000b;
-        public static final int textView_option=0x7f08000e;
-        public static final int textView_score=0x7f08000d;
-        public static final int textView_win_msg=0x7f080011;
-        public static final int textViewdesc=0x7f08000f;
+        public static final int textTime=0x7f08000e;
+        public static final int textViewScore=0x7f08000c;
+        public static final int textView_option=0x7f080012;
+        public static final int textView_score=0x7f080011;
+        public static final int textView_win_msg=0x7f080015;
+        public static final int textViewdesc=0x7f080013;
         public static final int text_view_question=0x7f080005;
     }
     public static final class layout {
@@ -82,7 +86,10 @@ public final class R {
         public static final int message_answer_right=0x7f05000f;
         public static final int message_answer_wrong=0x7f050010;
         public static final int options=0x7f050006;
+        public static final int progress=0x7f050018;
+        public static final int score=0x7f050019;
         public static final int submit_answer=0x7f05000a;
+        public static final int timeLeft=0x7f05001a;
         public static final int title_activity_hints=0x7f05000b;
         public static final int title_activity_options=0x7f050008;
         public static final int title_activity_questions=0x7f050007;

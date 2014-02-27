@@ -123,7 +123,8 @@ public class TransitionScreen extends Activity {
 			{
 				answer_Label.setVisibility(View.INVISIBLE);
 				answer_Text.setVisibility(View.INVISIBLE);
-				message = "Congratulations, you have won 10000 points";					
+				message = "Congratulations, you have won 10000 points";
+				Main.TOTALSCORE += 10000;
 			}
 		}		
 

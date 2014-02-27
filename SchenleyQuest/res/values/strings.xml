@@ -25,5 +25,7 @@
     <string name="Option4">Option 4</string>
     <string name="back_to_menu">Back to Menu</string>
     <string name="title_activity_win_screen">WinScreen</string>
-
+    <string name = "progress">Progress Indicator</string>
+    <string name="score">Score: </string>
+	<string name="timeLeft">Time left: </string>
 </resources>

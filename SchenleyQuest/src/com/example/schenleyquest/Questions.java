@@ -51,7 +51,11 @@ public class Questions extends Activity {
 		
 		String[] inputParameters = getIntent().getStringExtra(Main.KEY_QUESTION).split("\\s+");
 		featureId = inputParameters[0];
-		if (inputParameters.length == 1) {
+		if (inputParameters.length <= 2) {
+			
+			if (inputParameters.length == 2)
+				resetQuest();			
+			
 			SQLiteDatabase db = dbHelper.getReadableDatabase();
 
 			// Define a projection that specifies which columns from the database
@@ -118,6 +122,10 @@ public class Questions extends Activity {
 		}
 		
 		setContentView(R.layout.activity_questions);
+		
+		TextView scoreText =(TextView)findViewById(R.id.textViewScore);
+		scoreText.setText(scoreText.getText()+Integer.toString(Main.TOTALSCORE));
+		
 		questionText = (TextView)findViewById(R.id.text_view_question);
 		questionText.setText(question);
 		radioOpGroup = (RadioGroup) findViewById(R.id.radioOptions);
@@ -125,6 +133,11 @@ public class Questions extends Activity {
             ((RadioButton) radioOpGroup.getChildAt(i)).setText(option[i]);
         }
 		
+	}
+
+	private void resetQuest() {
+		Main.TOTALSCORE = 0;
+		Main.PROGRESS = new String[10];
 	}
 
 	@Override

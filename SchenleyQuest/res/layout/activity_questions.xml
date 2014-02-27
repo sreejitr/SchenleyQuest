@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="48dp"
         android:text="@string/hello_world"
         android:textSize="@dimen/activity_vertical_margin" />
 
@@ -73,5 +73,40 @@
         android:visibility="invisible"
         android:onClick="questionsButtonClick"
         android:text="@string/submit_answer" />
+
+    <TextView
+        android:id="@+id/textViewScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/buttonProgress"
+        android:layout_alignBottom="@+id/buttonProgress"
+        android:layout_centerHorizontal="true"
+        android:text="@string/score" />
+
+    <Button
+        android:id="@+id/buttonMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/hint_button"
+        android:layout_toRightOf="@+id/textViewScore"
+        android:text="@string/back_to_menu" />
+
+    <Button
+        android:id="@+id/buttonProgress"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/progress" />
+
+    <TextView
+        android:id="@+id/textTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textViewScore"
+        android:layout_alignBottom="@+id/textViewScore"
+        android:layout_alignRight="@+id/buttonMenu"
+        android:text="@string/timeLeft" />
 
 </RelativeLayout>

@@ -12,7 +12,9 @@ public class Main extends Activity {
 	
 	public static final String KEY_TRANSITION = "com.example.myfirstapp.KeyTransition";
 	
-	public static final int TOTALSCORE = 0;
+	public static int TOTALSCORE = 0;
+	
+	public static String[] PROGRESS = new String[10];
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,17 +37,17 @@ public class Main extends Activity {
     	{
     	case R.id.button1:
     		Intent intent1 = new Intent(this, Questions.class);
-    		intent1.putExtra(KEY_QUESTION, "1");
+    		intent1.putExtra(KEY_QUESTION, "1 Start");
         	startActivity(intent1);
         	break;
     	case R.id.button2:
     		Intent intent2 = new Intent(this, Questions.class);
-    		intent2.putExtra(KEY_QUESTION, "2");
+    		intent2.putExtra(KEY_QUESTION, "1 Start");
         	startActivity(intent2);
         	break;
     	case R.id.button3:
     		Intent intent3 = new Intent(this, Questions.class);
-    		intent3.putExtra(KEY_QUESTION, "1");
+    		intent3.putExtra(KEY_QUESTION, "1 Start");
         	startActivity(intent3);
         	break;
         case R.id.button4:
