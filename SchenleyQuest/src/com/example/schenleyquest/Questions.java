@@ -4,10 +4,12 @@ import java.io.IOException;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.Menu;
+import android.view.View;
 import android.widget.TextView;
 
 public class Questions extends Activity {
@@ -81,5 +83,24 @@ public class Questions extends Activity {
 		getMenuInflater().inflate(R.menu.questions, menu);
 		return true;
 	}
+	
+    /** Called when the user clicks the Level 1, Level 2, Level 3 buttons or the Settings button */
+    public void questionsButtonClick(View view) {
+    	
+    	switch(view.getId())
+    	{
+    	case R.id.submit_button:
+    		Intent intent1 = new Intent(this, TransitionScreen.class);
+        	startActivity(intent1);
+        	break;
+    	case R.id.hint_button:
+    		Intent intent2 = new Intent(this, Hints.class);
+        	startActivity(intent2);
+        	break;
+
+    	default:
+    	throw new RuntimeException("Unknown button ID");
+    	}
+    }  	
 
 }

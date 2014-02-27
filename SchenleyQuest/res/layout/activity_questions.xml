@@ -14,4 +14,23 @@
         android:layout_height="wrap_content"
         android:text="@string/hello_world" />
 
+    <Button
+        android:id="@+id/hint_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/text_view_question"
+        android:layout_alignParentBottom="true"
+        android:text="@string/hint" 
+        android:onClick="questionsButtonClick" />
+
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/hint_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="56dp"
+        android:text="@string/submit_answer" 
+        android:onClick="questionsButtonClick" />
+
 </RelativeLayout>

@@ -26,6 +26,7 @@ public class Main extends Activity {
     
     /** Called when the user clicks the Level 1, Level 2, Level 3 buttons or the Settings button */
     public void mainButtonClick(View view) {
+    	
     	switch(view.getId())
     	{
     	case R.id.button1:
@@ -40,7 +41,7 @@ public class Main extends Activity {
         	break;
     	case R.id.button3:
     		Intent intent3 = new Intent(this, Questions.class);
-    		intent3.putExtra(KEY_QUESTION, "3");
+    		intent3.putExtra(KEY_QUESTION, "1");
         	startActivity(intent3);
         	break;
         case R.id.button4:
@@ -48,7 +49,7 @@ public class Main extends Activity {
         	startActivity(intentSettings);
         	break;
     	default:
-    	throw new RuntimeException("Unknow button ID");
+    	throw new RuntimeException("Unknown button ID");
     	}
     }   
     

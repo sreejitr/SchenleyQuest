@@ -30,6 +30,14 @@
             android:name="com.example.schenleyquest.Options"
             android:label="@string/title_activity_options" >
         </activity>
+        <activity
+            android:name="com.example.schenleyquest.Hints"
+            android:label="@string/title_activity_hints" >
+        </activity>
+        <activity
+            android:name="com.example.schenleyquest.TransitionScreen"
+            android:label="@string/title_activity_transition_screen" >
+        </activity>
     </application>
 
 </manifest>

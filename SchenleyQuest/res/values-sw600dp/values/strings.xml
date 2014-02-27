@@ -10,9 +10,5 @@
     <string name="options">Level 4</string>
     <string name="title_activity_questions">Questions</string>
     <string name="title_activity_options">Options</string>
-    <string name="hint">Hint</string>
-    <string name="submit_answer">Submit Answer</string>
-    <string name="title_activity_hints">Hints</string>
-    <string name="title_activity_transition_screen">TransitionScreen</string>
 
 </resources>
