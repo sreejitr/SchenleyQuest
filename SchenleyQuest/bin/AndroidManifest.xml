@@ -38,6 +38,10 @@
             android:name="com.example.schenleyquest.TransitionScreen"
             android:label="@string/title_activity_transition_screen" >
         </activity>
+        <activity
+            android:name="com.example.schenleyquest.WinScreen"
+            android:label="@string/title_activity_win_screen" >
+        </activity>
     </application>
 
 </manifest>

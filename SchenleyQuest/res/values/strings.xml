@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">SchenleyQuest</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
@@ -13,13 +14,16 @@
     <string name="submit_answer">Submit Answer</string>
     <string name="title_activity_hints">Hints</string>
     <string name="title_activity_transition_screen">TransitionScreen</string>
-	<string name="background_image">background image</string>
-	<string name="continue_button">Continue</string>
-	<string name="message_answer_right">Congratulations! You have won 10000 points</string>
-	<string name="message_answer_wrong">Incorrect Answer</string>
-	<string name="answer">Answer: </string>
-	<string name="Option1">Option 1</string>
-	<string name="Option2">Option 2</string>
-	<string name="Option3">Option 3</string>
-	<string name="Option4">Option 4</string>
+    <string name="background_image">background image</string>
+    <string name="continue_button">Continue</string>
+    <string name="message_answer_right">Congratulations! You have won 10000 points</string>
+    <string name="message_answer_wrong">Incorrect Answer</string>
+    <string name="answer">Answer: </string>
+    <string name="Option1">Option 1</string>
+    <string name="Option2">Option 2</string>
+    <string name="Option3">Option 3</string>
+    <string name="Option4">Option 4</string>
+    <string name="back_to_menu">Back to Menu</string>
+    <string name="title_activity_win_screen">WinScreen</string>
+
 </resources>

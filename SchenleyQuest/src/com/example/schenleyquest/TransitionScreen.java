@@ -44,7 +44,7 @@ public class TransitionScreen extends Activity {
 		
 		String[] inputParameters = getIntent().getStringExtra(Main.KEY_TRANSITION).split("\\s+");
 		
-		TextView answer_Label = (TextView)findViewById(R.id.textView1);
+		TextView answer_Label = (TextView)findViewById(R.id.textView_score);
 		TextView answer_Text = (TextView)findViewById(R.id.textView_option);
 		
 		if (inputParameters.length == 4) {
@@ -113,7 +113,7 @@ public class TransitionScreen extends Activity {
 			    cursor2.getColumnIndexOrThrow(Contract.Features.COLUMN_NAME_FEATURE_DESC)
 			);									
 			
-			if(inputParameters[2] == "no")
+			if(inputParameters[2].equals("no"))
 			{				
 				answer_Label.setVisibility(View.VISIBLE);
 				answer_Text.setVisibility(View.VISIBLE);
@@ -132,7 +132,7 @@ public class TransitionScreen extends Activity {
 		TextView description_text = (TextView)findViewById(R.id.textViewdesc);
 		description_text.setText(desc);
 		
-		TextView message_text = (TextView)findViewById(R.id.textView_msg);
+		TextView message_text = (TextView)findViewById(R.id.textView_win_msg);
 		message_text.setText(message);		
 		
 	}
@@ -145,16 +145,22 @@ public class TransitionScreen extends Activity {
 	}
 
     /** Called when the user clicks the Level 1, Level 2, Level 3 buttons or the Settings button */
-    public void nextQuestionClick(View view) {
-
-		Intent intent = new Intent(this, Questions.class);
+    public void nextQuestionClick(View view) {		
 		
 		String[] inputParameters = getIntent().getStringExtra(Main.KEY_TRANSITION).split("\\s+");
 		
-		intent.putExtra(Main.KEY_QUESTION, inputParameters[3]);
+		if(inputParameters[3].equals("3"))
+		{
+			Intent intent = new Intent(this, WinScreen.class);		
+			startActivity(intent);
+		}
+		else
+		{
+			Intent intent1 = new Intent(this, Questions.class);	
+			intent1.putExtra(Main.KEY_QUESTION, inputParameters[3]);		
+			startActivity(intent1);		
+		}
 		
-		startActivity(intent);
-
     } 
     
 }

@@ -12,14 +12,14 @@
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textView1"
+        android:layout_above="@+id/textView_score"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
         android:src="@drawable/new_year_152044_640"
         android:contentDescription="@string/background_image" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/textView_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/imageView1"
@@ -31,17 +31,17 @@
         android:id="@+id/textView_option"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView1"
-        android:layout_alignBottom="@+id/textView1"
+        android:layout_alignBaseline="@+id/textView_score"
+        android:layout_alignBottom="@+id/textView_score"
         android:layout_marginLeft="20dp"
-        android:layout_toRightOf="@+id/textView1"
+        android:layout_toRightOf="@+id/textView_score"
         android:text="@string/hello_world" />
 
     <TextView
         android:id="@+id/textViewdesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignLeft="@+id/textView_score"
         android:layout_below="@+id/textView_option"
         android:layout_marginTop="17dp"
         android:text="@string/hello_world" />
@@ -51,12 +51,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/textView_msg"
+        android:layout_alignRight="@+id/textView_win_msg"
         android:text="@string/continue_button"
         android:onClick="nextQuestionClick" />
 
     <TextView
-        android:id="@+id/textView_msg"
+        android:id="@+id/textView_win_msg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/imageView1"

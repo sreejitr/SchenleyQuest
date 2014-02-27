@@ -11,7 +11,9 @@ public class Main extends Activity {
 	public static final String KEY_QUESTION = "com.example.myfirstapp.KeyQuestion";
 	
 	public static final String KEY_TRANSITION = "com.example.myfirstapp.KeyTransition";
-
+	
+	public static final int TOTALSCORE = 0;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
