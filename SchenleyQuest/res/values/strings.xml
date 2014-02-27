@@ -14,5 +14,8 @@
     <string name="submit_answer">Submit Answer</string>
     <string name="title_activity_hints">Hints</string>
     <string name="title_activity_transition_screen">TransitionScreen</string>
-
+	<string name="Option1">Option 1</string>
+	<string name="Option2">Option 2</string>
+	<string name="Option3">Option 3</string>
+	<string name="Option4">Option 4</string>
 </resources>
