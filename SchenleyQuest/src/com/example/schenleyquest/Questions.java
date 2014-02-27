@@ -111,7 +111,7 @@ public class Questions extends Activity {
 					    cursor.getColumnIndexOrThrow(Contract.Options.COLUMN_NAME_OPTION));
 				if(Integer.toString(cursor.getInt(
 					    cursor.getColumnIndexOrThrow(Contract.Options.COLUMN_NAME_FEATURE_ID))).equals(featureId))
-					correctOption = Integer.toString(i);
+					correctOption = Integer.toString(i+1);
 				cursor.moveToNext();
 			}
 			
@@ -168,9 +168,8 @@ public class Questions extends Activity {
     	case R.id.submit_button:
     		String correctAnswer = (selectedOption.equals(correctOption)) ? "yes" : "no";
     		Intent intentSubmit = new Intent(this, TransitionScreen.class);
-    		intentSubmit.putExtra(Main.KEY_QUESTION, featureId + " " + qId + " " + correctAnswer + " " + Integer.toString((Integer.parseInt(featureId) + 1)));
+    		intentSubmit.putExtra(Main.KEY_TRANSITION, featureId + " " + qId + " " + correctAnswer + " " + Integer.toString((Integer.parseInt(featureId) + 1)));
         	startActivity(intentSubmit);
-        	this.finish();
         	break;
     	case R.id.hint_button:
     		Intent intentHint = new Intent(this, Hints.class);

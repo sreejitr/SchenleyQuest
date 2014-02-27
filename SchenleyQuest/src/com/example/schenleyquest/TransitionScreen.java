@@ -47,7 +47,7 @@ public class TransitionScreen extends Activity {
 		TextView answer_Label = (TextView)findViewById(R.id.textView1);
 		TextView answer_Text = (TextView)findViewById(R.id.textView_option);
 		
-		if (inputParameters.length == 1) {
+		if (inputParameters.length == 4) {
 			SQLiteDatabase db = dbHelper.getReadableDatabase();
 
 			// Define a projection that specifies which columns from the database
@@ -57,7 +57,7 @@ public class TransitionScreen extends Activity {
 			    Contract.Options.COLUMN_NAME_OPTION
 			    };
 			
-			String selection = Contract.Options.COLUMN_NAME_FEATURE_ID + "=? AND" +
+			String selection = Contract.Options.COLUMN_NAME_FEATURE_ID + "=? AND " +
 					Contract.Options.COLUMN_NAME_QUESTION_ID + "=?";
 			
 			String[] selectionArgs = {inputParameters[0],inputParameters[1]};
@@ -113,17 +113,17 @@ public class TransitionScreen extends Activity {
 			    cursor2.getColumnIndexOrThrow(Contract.Features.COLUMN_NAME_FEATURE_DESC)
 			);									
 			
-			if(inputParameters[2] == "yes")
+			if(inputParameters[2] == "no")
 			{				
 				answer_Label.setVisibility(View.VISIBLE);
 				answer_Text.setVisibility(View.VISIBLE);
-				message = "Congratulations, you have won 10000 points";			
+				message = "Sorry, your answer is incorrect";			
 			}
 			else
 			{
 				answer_Label.setVisibility(View.INVISIBLE);
 				answer_Text.setVisibility(View.INVISIBLE);
-				message = "Sorry, your answer is incorrect";					
+				message = "Congratulations, you have won 10000 points";					
 			}
 		}		
 

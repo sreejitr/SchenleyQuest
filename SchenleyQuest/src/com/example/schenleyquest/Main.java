@@ -31,7 +31,7 @@ public class Main extends Activity {
     	
     	switch(view.getId())
     	{
-    	case R.id.button_Continue:
+    	case R.id.button1:
     		Intent intent1 = new Intent(this, Questions.class);
     		intent1.putExtra(KEY_QUESTION, "1");
         	startActivity(intent1);
