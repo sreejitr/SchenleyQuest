@@ -10,6 +10,8 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class TransitionScreen extends Activity {
@@ -46,6 +48,8 @@ public class TransitionScreen extends Activity {
 		
 		TextView answer_Label = (TextView)findViewById(R.id.textView_score);
 		TextView answer_Text = (TextView)findViewById(R.id.textView_option);
+		ImageView image = (ImageView)findViewById(R.id.imageView1);
+		TextView message_text = (TextView)findViewById(R.id.textView_win_msg);
 		
 		if (inputParameters.length == 4) {
 			SQLiteDatabase db = dbHelper.getReadableDatabase();
@@ -111,18 +115,30 @@ public class TransitionScreen extends Activity {
 			cursor2.moveToFirst();
 			desc = cursor2.getString(
 			    cursor2.getColumnIndexOrThrow(Contract.Features.COLUMN_NAME_FEATURE_DESC)
-			);									
+			);
+			db.close();
+			dbHelper.close();
 			
 			if(inputParameters[2].equals("no"))
-			{				
+			{
+				RelativeLayout.LayoutParams paramsBannerText = (RelativeLayout.LayoutParams) message_text.getLayoutParams();
+				paramsBannerText.topMargin = getDpAsPixels(70);
+				
+				RelativeLayout.LayoutParams paramsAnswer = (RelativeLayout.LayoutParams) answer_Label.getLayoutParams();
+				paramsAnswer.addRule(RelativeLayout.BELOW, R.id.textView_win_msg);
+				
+				int topPadAns = getDpAsPixels(30);
+				answer_Label.setPadding(0, topPadAns, 0, 0);
+				image.setVisibility(View.GONE);
+				//answer_Label.setLayoutParams(paramsAnswer);
 				answer_Label.setVisibility(View.VISIBLE);
 				answer_Text.setVisibility(View.VISIBLE);
 				message = "Sorry, your answer is incorrect";			
 			}
 			else
 			{
-				answer_Label.setVisibility(View.INVISIBLE);
-				answer_Text.setVisibility(View.INVISIBLE);
+				answer_Label.setVisibility(View.GONE);
+				answer_Text.setVisibility(View.GONE);
 				message = "Congratulations, you have won 10000 points";
 				Main.TOTALSCORE += 10000;
 			}
@@ -133,9 +149,18 @@ public class TransitionScreen extends Activity {
 		TextView description_text = (TextView)findViewById(R.id.textViewdesc);
 		description_text.setText(desc);
 		
-		TextView message_text = (TextView)findViewById(R.id.textView_win_msg);
 		message_text.setText(message);		
 		
+	}
+
+	/**
+	 * @param dp
+	 * @return
+	 */
+	private int getDpAsPixels(int dp) {
+		float scale = getResources().getDisplayMetrics().density;
+		int dpAsPixels = (int) (dp*scale + 0.5f);
+		return dpAsPixels;
 	}
 
 	@Override
@@ -154,12 +179,14 @@ public class TransitionScreen extends Activity {
 		{
 			Intent intent = new Intent(this, WinScreen.class);		
 			startActivity(intent);
+			this.finish();
 		}
 		else
 		{
 			Intent intent1 = new Intent(this, Questions.class);	
 			intent1.putExtra(Main.KEY_QUESTION, inputParameters[3]);		
-			startActivity(intent1);		
+			startActivity(intent1);
+			this.finish();
 		}
 		
     } 

@@ -15,6 +15,9 @@ public class Main extends Activity {
 	public static int TOTALSCORE = 0;
 	
 	public static String[] PROGRESS = new String[10];
+
+	public static final String KEY_HINT = "com.example.myfirstapp.KeyHint";
+	
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {

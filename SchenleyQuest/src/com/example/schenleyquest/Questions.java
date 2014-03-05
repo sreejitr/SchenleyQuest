@@ -118,6 +118,8 @@ public class Questions extends Activity {
 					correctOption = Integer.toString(i+1);
 				cursor.moveToNext();
 			}
+			db.close();
+			dbHelper.close();
 			
 		}
 		
@@ -183,11 +185,19 @@ public class Questions extends Activity {
     		Intent intentSubmit = new Intent(this, TransitionScreen.class);
     		intentSubmit.putExtra(Main.KEY_TRANSITION, featureId + " " + qId + " " + correctAnswer + " " + Integer.toString((Integer.parseInt(featureId) + 1)));
         	startActivity(intentSubmit);
+        	this.finish();
         	break;
     	case R.id.hint_button:
     		Intent intentHint = new Intent(this, Hints.class);
+    		intentHint.putExtra(Main.KEY_HINT, featureId);
         	startActivity(intentHint);
         	break;
+    	case R.id.buttonBackToMenu:
+    		Intent intent = new Intent(this, Main.class);
+    		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+    		startActivity(intent);
+    		this.finish();
+    		break;
 
     	default:
     	throw new RuntimeException("Unknown button ID");

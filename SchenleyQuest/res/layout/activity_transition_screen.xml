@@ -12,19 +12,18 @@
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textView_score"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
-        android:src="@drawable/new_year_152044_640"
-        android:contentDescription="@string/background_image" />
+        android:alpha="0.25"
+        android:contentDescription="@string/background_image"
+        android:src="@drawable/new_year_152044_640" />
 
     <TextView
         android:id="@+id/textView_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/imageView1"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="102dp"
+        android:layout_below="@+id/imageView1"
         android:text="@string/answer" />
 
     <TextView
@@ -43,17 +42,19 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView_score"
         android:layout_below="@+id/textView_option"
+        android:layout_above="@+id/button_Continue"
         android:layout_marginTop="17dp"
         android:text="@string/hello_world" />
 
     <Button
         android:id="@+id/button_Continue"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="32dp"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/textView_win_msg"
         android:text="@string/continue_button"
-        android:onClick="nextQuestionClick" />
+        android:onClick="nextQuestionClick"
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/textView_win_msg"

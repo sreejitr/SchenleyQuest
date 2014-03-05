@@ -42,6 +42,18 @@
             android:name="com.example.schenleyquest.WinScreen"
             android:label="@string/title_activity_win_screen" >
         </activity>
+        <activity
+            android:name="com.example.schenleyquest.HintTextActivity"
+            android:label="@string/title_activity_hint_text" >
+        </activity>
+        <activity
+            android:name="com.example.schenleyquest.HintText"
+            android:label="@string/title_activity_hint_text" >
+        </activity>
+        <activity
+            android:name="com.example.schenleyquest.DirectionHint"
+            android:label="@string/title_activity_direction_hint" >
+        </activity>
     </application>
 
 </manifest>

@@ -11,11 +11,12 @@
     <Button
         android:id="@+id/hint_button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="32dp"
         android:layout_alignLeft="@+id/text_view_question"
         android:layout_alignParentBottom="true"
         android:onClick="questionsButtonClick"
-        android:text="@string/hint" />
+        android:text="@string/hint"
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/text_view_question"
@@ -66,13 +67,24 @@
     <Button
         android:id="@+id/submit_button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="36dp"
         android:layout_above="@+id/hint_button"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="22dp"
         android:visibility="invisible"
         android:onClick="questionsButtonClick"
-        android:text="@string/submit_answer" />
+        android:text="@string/submit_answer"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/buttonBackToMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/submit_button"
+        android:onClick="questionsButtonClick"
+        android:text="@string/back_to_menu"
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/textViewScore"
@@ -83,30 +95,23 @@
         android:layout_centerHorizontal="true"
         android:text="@string/score" />
 
-    <Button
-        android:id="@+id/buttonMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/hint_button"
-        android:layout_toRightOf="@+id/textViewScore"
-        android:text="@string/back_to_menu" />
-
-    <Button
-        android:id="@+id/buttonProgress"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="@string/progress" />
-
     <TextView
         android:id="@+id/textTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/textViewScore"
         android:layout_alignBottom="@+id/textViewScore"
-        android:layout_alignRight="@+id/buttonMenu"
+        android:layout_alignRight="@+id/buttonBackToMenu"
         android:text="@string/timeLeft" />
+
+    <Button
+        android:id="@+id/buttonProgress"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="75dp"
+        android:layout_height="32dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/text_view_question"
+        android:text="@string/progress"
+        android:textSize="12sp" />
 
 </RelativeLayout>
