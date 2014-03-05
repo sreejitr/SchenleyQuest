@@ -34,10 +34,12 @@ public class Hints extends Activity {
     		Intent intenthintText = new Intent(this, HintText.class);
     		intenthintText.putExtra(Main.KEY_HINT, featureId);
         	startActivity(intenthintText);
+        	this.finish();
         	break;
     	case R.id.imageButton2:
     		Intent intentDirectionHint = new Intent(this, DirectionHint.class);
         	startActivity(intentDirectionHint);
+        	this.finish();
         	break;
     	default:
     	throw new RuntimeException("Unknown button ID");

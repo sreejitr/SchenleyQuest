@@ -45,12 +45,12 @@ public final class R {
         public static final int imageButton2=0x7f080003;
         public static final int imageView1=0x7f080000;
         public static final int imageView2=0x7f080019;
-        public static final int radioButton1=0x7f08000b;
-        public static final int radioButton2=0x7f08000c;
-        public static final int radioButton3=0x7f08000d;
-        public static final int radioButton4=0x7f08000e;
-        public static final int radioOptions=0x7f08000a;
-        public static final int submit_button=0x7f08000f;
+        public static final int radioButton1=0x7f08000c;
+        public static final int radioButton2=0x7f08000d;
+        public static final int radioButton3=0x7f08000e;
+        public static final int radioButton4=0x7f08000f;
+        public static final int radioOptions=0x7f08000b;
+        public static final int submit_button=0x7f080009;
         public static final int textTime=0x7f080013;
         public static final int textViewScore=0x7f080011;
         public static final int textView_hinttext=0x7f080001;
@@ -58,7 +58,7 @@ public final class R {
         public static final int textView_score=0x7f080014;
         public static final int textView_win_msg=0x7f080018;
         public static final int textViewdesc=0x7f080016;
-        public static final int text_view_question=0x7f080009;
+        public static final int text_view_question=0x7f08000a;
     }
     public static final class layout {
         public static final int activity_direction_hint=0x7f030000;
@@ -108,6 +108,7 @@ public final class R {
         public static final int message_answer_wrong=0x7f050010;
         public static final int options=0x7f050006;
         public static final int progress=0x7f050023;
+        public static final int quitQuest=0x7f050026;
         public static final int schenleyq_image=0x7f050022;
         public static final int score=0x7f050024;
         public static final int submit_answer=0x7f05000a;

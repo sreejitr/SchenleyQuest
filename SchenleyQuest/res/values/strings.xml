@@ -38,4 +38,5 @@
 	<string name = "progress">Progress Indicator</string>
     <string name="score">Score: </string>
 	<string name="timeLeft">Time left: </string>
+	<string name="quitQuest">Quit Quest</string>
 </resources>
