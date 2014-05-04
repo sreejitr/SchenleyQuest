@@ -36,6 +36,7 @@
 	<string name="game_options">Game Options</string>
 	<string name="schenleyq_image">Schenley Quest</string>
 	<string name = "progress">Progress Indicator</string>
+	<string name = "photo">Take a pic!</string>
     <string name="score">Score: </string>
 	<string name="timeLeft">Time left: </string>
 	<string name="quitQuest">Quit Quest</string>

@@ -32,19 +32,20 @@ public final class R {
         public static final int schenleyq=0x7f020008;
     }
     public static final class id {
-        public static final int action_settings=0x7f08001a;
+        public static final int action_settings=0x7f08001b;
         public static final int button1=0x7f080006;
         public static final int button2=0x7f080007;
         public static final int button3=0x7f080005;
         public static final int button4=0x7f080004;
         public static final int buttonBackToMenu=0x7f080010;
+        public static final int buttonPhoto=0x7f080014;
         public static final int buttonProgress=0x7f080012;
-        public static final int button_Continue=0x7f080017;
+        public static final int button_Continue=0x7f080018;
         public static final int hint_button=0x7f080008;
         public static final int imageButton1=0x7f080002;
         public static final int imageButton2=0x7f080003;
         public static final int imageView1=0x7f080000;
-        public static final int imageView2=0x7f080019;
+        public static final int imageView2=0x7f08001a;
         public static final int radioButton1=0x7f08000c;
         public static final int radioButton2=0x7f08000d;
         public static final int radioButton3=0x7f08000e;
@@ -54,10 +55,10 @@ public final class R {
         public static final int textTime=0x7f080013;
         public static final int textViewScore=0x7f080011;
         public static final int textView_hinttext=0x7f080001;
-        public static final int textView_option=0x7f080015;
-        public static final int textView_score=0x7f080014;
-        public static final int textView_win_msg=0x7f080018;
-        public static final int textViewdesc=0x7f080016;
+        public static final int textView_option=0x7f080016;
+        public static final int textView_score=0x7f080015;
+        public static final int textView_win_msg=0x7f080019;
+        public static final int textViewdesc=0x7f080017;
         public static final int text_view_question=0x7f08000a;
     }
     public static final class layout {
@@ -107,12 +108,13 @@ public final class R {
         public static final int message_answer_right=0x7f05000f;
         public static final int message_answer_wrong=0x7f050010;
         public static final int options=0x7f050006;
+        public static final int photo=0x7f050024;
         public static final int progress=0x7f050023;
-        public static final int quitQuest=0x7f050026;
+        public static final int quitQuest=0x7f050027;
         public static final int schenleyq_image=0x7f050022;
-        public static final int score=0x7f050024;
+        public static final int score=0x7f050025;
         public static final int submit_answer=0x7f05000a;
-        public static final int timeLeft=0x7f050025;
+        public static final int timeLeft=0x7f050026;
         public static final int title_activity_direction_hint=0x7f05001a;
         public static final int title_activity_hint_text=0x7f050019;
         public static final int title_activity_hints=0x7f05000b;

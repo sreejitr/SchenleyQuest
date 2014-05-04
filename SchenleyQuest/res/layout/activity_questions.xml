@@ -114,4 +114,15 @@
         android:text="@string/progress"
         android:textSize="12sp" />
 
+    <Button
+        android:id="@+id/buttonPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/buttonBackToMenu"
+        android:layout_alignTop="@+id/buttonBackToMenu"
+        android:layout_centerHorizontal="true"
+        android:onClick="questionsButtonClick"
+        android:text="@string/photo"
+        android:textSize="12sp" />
+
 </RelativeLayout>
