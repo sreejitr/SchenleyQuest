@@ -1,0 +1,45 @@
+package com.example.schenleyquest;
+
+import java.io.IOException;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+
+public class Progress extends Activity{
+
+    // This is the Adapter being used to display the list's data
+	ArrayAdapter<String> adapter1;
+	ArrayAdapter<String> adapter2;
+       
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_progress);
+		
+		adapter1 = new ArrayAdapter<String>(this, 
+			    android.R.layout.simple_list_item_2, android.R.id.text1, Main.PROGRESS_QUESTION);
+		
+		adapter2 = new ArrayAdapter<String>(this, 
+			    android.R.layout.simple_list_item_2, android.R.id.text2, Main.PROGRESS_ANSWER);
+		
+		ListView listView = (ListView) findViewById(R.id.list01);
+		
+		listView.setAdapter(adapter1);
+		
+		listView.setAdapter(adapter2);
+
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.progress, menu);
+		return true;
+	}
+
+}

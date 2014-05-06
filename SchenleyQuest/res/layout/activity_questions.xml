@@ -111,6 +111,7 @@
         android:layout_height="32dp"
         android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/text_view_question"
+        android:onClick="questionsButtonClick"
         android:text="@string/progress"
         android:textSize="12sp" />
 

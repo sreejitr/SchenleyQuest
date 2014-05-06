@@ -90,7 +90,7 @@ public class Questions extends Activity {
 			question = cursor.getString(
 			    cursor.getColumnIndexOrThrow(Contract.Questions.COLUMN_NAME_QUESTION)
 			);
-			
+			  		
 			String[] optionProjection = {
 					Contract.Options._ID,
 				    Contract.Options.COLUMN_NAME_OPTION,
@@ -139,7 +139,10 @@ public class Questions extends Activity {
 
 	private void resetQuest() {
 		Main.TOTALSCORE = 0;
-		Main.PROGRESS = new String[10];
+		//Main.PROGRESS = new String[10];
+		Main.PROGRESS_QUESTION.clear();
+		Main.PROGRESS_ANSWER.clear();
+		Main.PROGRESS_ANS_CORRECT.clear();
 	}
 
 	@Override
@@ -181,12 +184,20 @@ public class Questions extends Activity {
     	switch(view.getId())
     	{
     	case R.id.submit_button:
-    		String correctAnswer = (selectedOption.equals(correctOption)) ? "yes" : "no";
+			//Add the selected question to PROGRESS
+    		Main.PROGRESS_QUESTION.add(question);
+    		//Add the selected answer to PROGRESS_ANSWER
+    		int selectedAnswerID = Integer.parseInt(selectedOption);
+    		Main.PROGRESS_ANSWER.add(option[selectedAnswerID-1]);    		
+    		String correctAnswer = (selectedOption.equals(correctOption)) ? "yes" : "no";    	
+    		//Add answer correctness flag to PROGRESS_ANS_CORRECT
+    		Main.PROGRESS_ANS_CORRECT.add(correctAnswer);    		
     		Intent intentSubmit = new Intent(this, TransitionScreen.class);
     		intentSubmit.putExtra(Main.KEY_TRANSITION, featureId + " " + qId + " " + correctAnswer + " " + Integer.toString((Integer.parseInt(featureId) + 1)));
         	startActivity(intentSubmit);
         	this.finish();
         	break;
+        	
     	case R.id.hint_button:
     		Intent intentHint = new Intent(this, Hints.class);
     		intentHint.putExtra(Main.KEY_HINT, featureId);
@@ -198,6 +209,10 @@ public class Questions extends Activity {
     		startActivity(intent);
     		this.finish();
     		break;
+    	case R.id.buttonProgress:
+    		Intent intentProgress = new Intent(this, Progress.class);
+        	startActivity(intentProgress);
+        	break;   		
 
     	default:
     	throw new RuntimeException("Unknown button ID");

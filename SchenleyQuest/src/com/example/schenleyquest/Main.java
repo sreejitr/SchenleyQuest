@@ -1,5 +1,7 @@
 package com.example.schenleyquest;
 
+import java.util.ArrayList;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -14,10 +16,14 @@ public class Main extends Activity {
 	
 	public static int TOTALSCORE = 0;
 	
-	public static String[] PROGRESS = new String[10];
+	//public static String[] PROGRESS = new String[10];
 
 	public static final String KEY_HINT = "com.example.myfirstapp.KeyHint";
 	
+	public static ArrayList<String> PROGRESS_QUESTION = new ArrayList<String>();
+	public static ArrayList<String> PROGRESS_ANSWER = new ArrayList<String>();
+	public static ArrayList<String> PROGRESS_ANS_CORRECT = new ArrayList<String>();
+	public static int i = 0;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {

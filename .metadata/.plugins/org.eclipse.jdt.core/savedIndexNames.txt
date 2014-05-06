@@ -1,0 +1,4 @@
+INDEX VERSION 1.126+C:\Users\vidnamb\Documents\COURSES SPRING 2014\Mobile and Pervasive\SchenleyQuest\.metadata\.plugins\org.eclipse.jdt.core
+1218612990.index
+1907890585.index
+4273705548.index

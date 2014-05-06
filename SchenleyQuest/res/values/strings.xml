@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">SchenleyQuest</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
@@ -29,14 +30,17 @@
     <string name="title_activity_direction_hint">DirectionHint</string>
     <string name="hint_text">Hint Text</string>
     <string name="hint_parchment">background image for hint text</string>
-	<string name="large_text">Large Text</string>
-	<string name="hint_text_button_image">Hint Text Button Image</string>
-	<string name="direction_btnimage">Direction Hint Button image</string>
-	<string name="direction_map">Direction Indicator Map</string>
-	<string name="game_options">Game Options</string>
-	<string name="schenleyq_image">Schenley Quest</string>
-	<string name = "progress">Progress Indicator</string>
+    <string name="large_text">Large Text</string>
+    <string name="hint_text_button_image">Hint Text Button Image</string>
+    <string name="direction_btnimage">Direction Hint Button image</string>
+    <string name="direction_map">Direction Indicator Map</string>
+    <string name="game_options">Game Options</string>
+    <string name="schenleyq_image">Schenley Quest</string>
+    <string name="progress">Progress Indicator</string>
     <string name="score">Score: </string>
-	<string name="timeLeft">Time left: </string>
-	<string name="quitQuest">Quit Quest</string>
+    <string name="timeLeft">Time left: </string>
+    <string name="quitQuest">Quit Quest</string>
+    <string name="title_activity_progress_view">ProgressView</string>
+    <string name="title_activity_progress">Progress</string>
+
 </resources>
