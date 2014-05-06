@@ -57,5 +57,13 @@
             android:name="com.example.schenleyquest.DirectionHint"
             android:label="@string/title_activity_direction_hint" >
         </activity>
+        <activity
+            android:name="com.example.schenleyquest.ProgressView"
+            android:label="@string/title_activity_progress_view" >
+        </activity>
+        <activity
+            android:name="com.example.schenleyquest.Progress"
+            android:label="@string/title_activity_progress" >
+        </activity>
     </application>
 </manifest>

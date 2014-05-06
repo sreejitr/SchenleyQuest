@@ -25,41 +25,47 @@ public final class R {
         public static final int direction_hint_button=0x7f020001;
         public static final int direction_indication=0x7f020002;
         public static final int game_options=0x7f020003;
-        public static final int hint_text_button=0x7f020004;
-        public static final int ic_launcher=0x7f020005;
-        public static final int new_year_152044_640=0x7f020006;
-        public static final int old_parchment=0x7f020007;
-        public static final int schenleyq=0x7f020008;
+        public static final int greentick=0x7f020004;
+        public static final int hint_text_button=0x7f020005;
+        public static final int ic_launcher=0x7f020006;
+        public static final int new_year_152044_640=0x7f020007;
+        public static final int old_parchment=0x7f020008;
+        public static final int redcross=0x7f020009;
+        public static final int schenleyq=0x7f02000a;
     }
     public static final class id {
-        public static final int action_settings=0x7f08001b;
+        public static final int action_settings=0x7f08001f;
+        public static final int answer_subtitle=0x7f08001e;
+        public static final int answer_type=0x7f08001c;
         public static final int button1=0x7f080006;
         public static final int button2=0x7f080007;
         public static final int button3=0x7f080005;
         public static final int button4=0x7f080004;
-        public static final int buttonBackToMenu=0x7f080010;
-        public static final int buttonPhoto=0x7f080014;
-        public static final int buttonProgress=0x7f080012;
-        public static final int button_Continue=0x7f080018;
-        public static final int hint_button=0x7f080008;
+        public static final int buttonBackToMenu=0x7f080011;
+        public static final int buttonPhoto=0x7f080015;
+        public static final int buttonProgress=0x7f080013;
+        public static final int button_Continue=0x7f080019;
+        public static final int hint_button=0x7f080009;
         public static final int imageButton1=0x7f080002;
         public static final int imageButton2=0x7f080003;
         public static final int imageView1=0x7f080000;
-        public static final int imageView2=0x7f08001a;
-        public static final int radioButton1=0x7f08000c;
-        public static final int radioButton2=0x7f08000d;
-        public static final int radioButton3=0x7f08000e;
-        public static final int radioButton4=0x7f08000f;
-        public static final int radioOptions=0x7f08000b;
-        public static final int submit_button=0x7f080009;
-        public static final int textTime=0x7f080013;
-        public static final int textViewScore=0x7f080011;
+        public static final int imageView2=0x7f08001b;
+        public static final int listView=0x7f080008;
+        public static final int question=0x7f08001d;
+        public static final int radioButton1=0x7f08000d;
+        public static final int radioButton2=0x7f08000e;
+        public static final int radioButton3=0x7f08000f;
+        public static final int radioButton4=0x7f080010;
+        public static final int radioOptions=0x7f08000c;
+        public static final int submit_button=0x7f08000a;
+        public static final int textTime=0x7f080014;
+        public static final int textViewScore=0x7f080012;
         public static final int textView_hinttext=0x7f080001;
-        public static final int textView_option=0x7f080016;
-        public static final int textView_score=0x7f080015;
-        public static final int textView_win_msg=0x7f080019;
-        public static final int textViewdesc=0x7f080017;
-        public static final int text_view_question=0x7f08000a;
+        public static final int textView_option=0x7f080017;
+        public static final int textView_score=0x7f080016;
+        public static final int textView_win_msg=0x7f08001a;
+        public static final int textViewdesc=0x7f080018;
+        public static final int text_view_question=0x7f08000b;
     }
     public static final class layout {
         public static final int activity_direction_hint=0x7f030000;
@@ -67,9 +73,12 @@ public final class R {
         public static final int activity_hints=0x7f030002;
         public static final int activity_main=0x7f030003;
         public static final int activity_options=0x7f030004;
-        public static final int activity_questions=0x7f030005;
-        public static final int activity_transition_screen=0x7f030006;
-        public static final int activity_win_screen=0x7f030007;
+        public static final int activity_progress=0x7f030005;
+        public static final int activity_questions=0x7f030006;
+        public static final int activity_transition_screen=0x7f030007;
+        public static final int activity_win_screen=0x7f030008;
+        public static final int progress_list_item=0x7f030009;
+        public static final int progress_list_view=0x7f03000a;
     }
     public static final class menu {
         public static final int direction_hint=0x7f070000;
@@ -77,9 +86,11 @@ public final class R {
         public static final int hints=0x7f070002;
         public static final int main=0x7f070003;
         public static final int options=0x7f070004;
-        public static final int questions=0x7f070005;
-        public static final int transition_screen=0x7f070006;
-        public static final int win_screen=0x7f070007;
+        public static final int progress=0x7f070005;
+        public static final int progress_view=0x7f070006;
+        public static final int questions=0x7f070007;
+        public static final int transition_screen=0x7f070008;
+        public static final int win_screen=0x7f070009;
     }
     public static final class string {
         public static final int Option1=0x7f050012;
@@ -119,6 +130,8 @@ public final class R {
         public static final int title_activity_hint_text=0x7f050019;
         public static final int title_activity_hints=0x7f05000b;
         public static final int title_activity_options=0x7f050008;
+        public static final int title_activity_progress=0x7f050029;
+        public static final int title_activity_progress_view=0x7f050028;
         public static final int title_activity_questions=0x7f050007;
         public static final int title_activity_transition_screen=0x7f05000c;
         public static final int title_activity_win_screen=0x7f050017;
