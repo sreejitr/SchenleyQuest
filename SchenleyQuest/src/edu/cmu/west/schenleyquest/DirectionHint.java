@@ -1,5 +1,7 @@
 package edu.cmu.west.schenleyquest;
 
+import java.io.IOException;
+
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -19,12 +21,14 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
-import android.widget.TextView;
 
 public class DirectionHint extends FragmentActivity implements
 GooglePlayServicesClient.ConnectionCallbacks,
@@ -42,13 +46,83 @@ GooglePlayServicesClient.OnConnectionFailedListener {
  // Stores the current instantiation of the location client in this object
     private LocationClient mLocationClient;
     
+    String featureId = "";
+    
     private Location mCurrentLocation;
+    
+    private double mDestinationLatitude;
+    
+    private double mDestinationLongitude;
     
     private GoogleMap mMap;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		Main.TOTALSCORE -= 300;
+		
+		DBHelper dbHelper = new DBHelper(this);
+		try {
+			dbHelper.createDataBase();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			 
+	 		dbHelper.openDataBase();
+	 
+	 	}catch(SQLException sqle){
+	 
+	 		throw sqle;
+	 
+	 	}
+		dbHelper.close();
+		
+		String[] inputParameters = getIntent().getStringExtra(Main.KEY_HINT).split("\\s+");
+		
+		featureId = inputParameters[0];
+		if (inputParameters.length == 1) {
+			SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+			// Define a projection that specifies which columns from the database
+			// you will actually use after this query.
+			String[] projection = {
+			    Contract.Features._ID,
+			    Contract.Features.COLUMN_NAME_LATITUDE,
+			    Contract.Features.COLUMN_NAME_LONGITUDE
+			    };
+			
+			String selection = Contract.Features._ID + "=?";
+			
+			String[] selectionArgs = {featureId};
+
+			// How you want the results sorted in the resulting Cursor
+			String sortOrder =
+					Contract.Features._ID + " ASC";
+
+			Cursor cursor = db.query(
+					Contract.Features.TABLE_NAME,  // The table to query
+			    projection,                               // The columns to return
+			    selection,                                // The columns for the WHERE clause
+			    selectionArgs,                            // The values for the WHERE clause
+			    null,                                     // don't group the rows
+			    null,                                     // don't filter by row groups
+			    sortOrder                                 // The sort order
+			    );
+			
+			cursor.moveToFirst();
+			
+			mDestinationLatitude = Double.parseDouble(cursor.getString(
+			    cursor.getColumnIndexOrThrow(Contract.Features.COLUMN_NAME_LATITUDE)));
+			mDestinationLongitude = Double.parseDouble(cursor.getString(
+				    cursor.getColumnIndexOrThrow(Contract.Features.COLUMN_NAME_LONGITUDE)));
+			
+			db.close();
+			dbHelper.close();
+		}
+		
 		mLocationClient = new LocationClient(this, this, this);
 		setContentView(R.layout.activity_direction_hint);
 		mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
@@ -143,18 +217,18 @@ GooglePlayServicesClient.OnConnectionFailedListener {
                   BitmapDescriptorFactory.HUE_AZURE))).showInfoWindow();
     	
     	mMap.addMarker(new MarkerOptions()
-        .position(new LatLng(40.44219345, -79.9504763))
+        .position(new LatLng(mDestinationLatitude, mDestinationLongitude))
         .title("Your destination")
         .snippet("SchenleyQuest")
         .icon(BitmapDescriptorFactory.defaultMarker(
                 BitmapDescriptorFactory.HUE_RED))).showInfoWindow();
     	
     	mMap.addPolyline(new PolylineOptions()
-    	.add(new LatLng(40.44219345, -79.9504763), new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude())).width(5).color(Color.RED));
+    	.add(new LatLng(mDestinationLatitude, mDestinationLongitude), new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude())).width(5).color(Color.RED));
     	
     	
-		float[] results = new float[1];
-		Location.distanceBetween(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude(), 40.44219345, -79.9504763, results);
+		//float[] results = new float[1];
+		//Location.distanceBetween(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude(), mDestinationLatitude, mDestinationLongitude, results);
 		//currentLocationText.setText(String.valueOf(results[0]));
     }
 

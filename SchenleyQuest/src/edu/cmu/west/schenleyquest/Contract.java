@@ -17,6 +17,8 @@ public Contract() {}
 		public static final String COLUMN_NAME_FEATURE = "feature";
 		public static final String COLUMN_NAME_FEATURE_DESC = "feature_description";
 		public static final String COLUMN_NAME_FEATURE_HINT = "hint";
+		public static final String COLUMN_NAME_LATITUDE = "latitude";
+		public static final String COLUMN_NAME_LONGITUDE = "longitude";
 	}
 	
 	public static abstract class Questions implements BaseColumns {
