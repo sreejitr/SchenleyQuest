@@ -9,6 +9,15 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".Hints" >
     
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/schenleyq_image"
+        android:src="@drawable/app_back" />
+    
     <ImageButton
         android:id="@+id/imageButton1"
         android:layout_width="wrap_content"
@@ -30,12 +39,5 @@
         android:onClick="hintButtonClick"
         android:src="@drawable/direction_hint_button" 
 	    android:contentDescription="@string/direction_btnimage" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="@string/hint_page" 
-        android:textSize="20sp"/>
 
 </RelativeLayout>

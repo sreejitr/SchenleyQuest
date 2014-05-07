@@ -1,3 +1,4 @@
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,6 +9,15 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".Questions" >
 
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/schenleyq_image"
+        android:src="@drawable/app_back" />
+    
     <Button
         android:id="@+id/hint_button"
         android:layout_width="wrap_content"
@@ -17,7 +27,7 @@
         android:onClick="questionsButtonClick"
         android:text="@string/hint"
         android:textSize="12sp" />
-
+    
     <TextView
         android:id="@+id/text_view_question"
         android:layout_width="wrap_content"
@@ -27,43 +37,6 @@
         android:text="@string/hello_world"
         android:textSize="@dimen/activity_vertical_margin" />
 
-    <RadioGroup
-        android:id="@+id/radioOptions"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/text_view_question"
-        android:layout_below="@+id/text_view_question" >
-        
-        <RadioButton
-        	android:id="@+id/radioButton1"
-        	android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-        	android:layout_marginTop="72dp"
-        	android:onClick="questionRadioButtonClick"
-        	android:text="@string/Option1" />
-
-    	<RadioButton
-        	android:id="@+id/radioButton2"
-        	android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-        	android:onClick="questionRadioButtonClick"
-        	android:text="@string/Option2" />
-
-    	<RadioButton
-        	android:id="@+id/radioButton3"
-        	android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-        	android:onClick="questionRadioButtonClick"
-        	android:text="@string/Option3" />
-
-    	<RadioButton
-        	android:id="@+id/radioButton4"
-        	android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-        	android:onClick="questionRadioButtonClick"
-        	android:text="@string/Option4" />
-    </RadioGroup>
-
     <Button
         android:id="@+id/submit_button"
         android:layout_width="wrap_content"
@@ -71,7 +44,6 @@
         android:layout_above="@+id/buttonBackToMenu"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="22dp"
-        android:visibility="invisible"
         android:onClick="questionsButtonClick"
         android:text="@string/submit_answer"
         android:textSize="14sp" />
@@ -125,5 +97,42 @@
         android:onClick="questionsButtonClick"
         android:text="@string/photo"
         android:textSize="12sp" />
+
+    <RadioGroup
+        android:id="@+id/radioOptions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_question"
+        android:layout_marginTop="12dp"
+        android:layout_toLeftOf="@+id/buttonPhoto" >
+
+        <RadioButton
+            android:id="@+id/radioButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="questionRadioButtonClick"
+            android:text="@string/Option1" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="questionRadioButtonClick"
+            android:text="@string/Option2" />
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="questionRadioButtonClick"
+            android:text="@string/Option3" />
+
+        <RadioButton
+            android:id="@+id/radioButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="questionRadioButtonClick"
+            android:text="@string/Option4" />
+    </RadioGroup>
 
 </RelativeLayout>

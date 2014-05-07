@@ -50,19 +50,19 @@
         android:id="@+id/button_Continue"
         android:layout_width="wrap_content"
         android:layout_height="32dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/textView_win_msg"
-        android:text="@string/continue_button"
+        android:layout_alignBottom="@+id/imageView1"
+        android:layout_centerHorizontal="true"
         android:onClick="nextQuestionClick"
+        android:text="@string/continue_button"
         android:textSize="12sp" />
 
     <TextView
         android:id="@+id/textView_win_msg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/button_Continue"
         android:layout_alignTop="@+id/imageView1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="102dp"
+        android:layout_marginTop="112dp"
         android:text="@string/hello_world"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
