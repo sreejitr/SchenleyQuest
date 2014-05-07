@@ -3,12 +3,17 @@ package com.example.schenleyquest;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class WinScreen extends Activity {
-
+	String uri_rookie = "@drawable/rookie_badge.png";
+	String uri_experienced = "@drawable/experienced_badge.png";
+	String uri_expert = "@drawable/expert_badge.png";
+	ImageView imageview;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -22,7 +27,39 @@ public class WinScreen extends Activity {
 		message_text.setText(message);	
 		
 		TextView score_text = (TextView)findViewById(R.id.textView_score);
-		score_text.setText(score);			
+		score_text.setText(score);		
+		
+		if(Main.difficulty.equals("easy"))
+		{
+			if(Main.TOTALSCORE >= 13500) {
+				int imageResource = getResources().getIdentifier(uri_rookie, null, getPackageName());
+
+				imageview= (ImageView)findViewById(R.id.imageView2);
+				Drawable res = getResources().getDrawable(imageResource);
+				imageview.setImageDrawable(res);
+			}
+		}
+		else if(Main.difficulty.equals("medium"))
+		{
+			if(Main.TOTALSCORE >= 27000) {
+				int imageResource = getResources().getIdentifier(uri_experienced, null, getPackageName());
+
+				imageview= (ImageView)findViewById(R.id.imageView2);
+				Drawable res = getResources().getDrawable(imageResource);
+				imageview.setImageDrawable(res);
+			}
+		}
+		else if(Main.difficulty.equals("hard"))
+		{
+			if(Main.TOTALSCORE >= 40500) {
+				int imageResource = getResources().getIdentifier(uri_expert, null, getPackageName());
+
+				imageview= (ImageView)findViewById(R.id.imageView2);
+				Drawable res = getResources().getDrawable(imageResource);
+				imageview.setImageDrawable(res);
+			}
+		}
+		
 	}
 
 	@Override

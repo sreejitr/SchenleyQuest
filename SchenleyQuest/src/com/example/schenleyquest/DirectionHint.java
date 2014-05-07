@@ -8,6 +8,7 @@ public class DirectionHint extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		Main.TOTALSCORE -= 300;
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_direction_hint);
 	}

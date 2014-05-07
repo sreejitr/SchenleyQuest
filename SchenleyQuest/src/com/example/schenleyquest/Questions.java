@@ -29,6 +29,8 @@ public class Questions extends Activity {
 	String selectedOption;
 	String correctOption;
 	String featureId = "";
+	String questionSet = "";
+	String questionId = "";
 	String qId ="";
 	String question = "";
 	String[] option = new String[4];
@@ -55,30 +57,63 @@ public class Questions extends Activity {
 	 
 	 	}
 		dbHelper.close();
-		
+		//ROUTES
 		String[] inputParameters = getIntent().getStringExtra(Main.KEY_QUESTION).split("\\s+");
-		featureId = inputParameters[0];
+		//featureId = inputParameters[0];
 		if (inputParameters.length <= 2) {
-			
-			if (inputParameters.length == 2)
-				resetQuest();			
-			
 			SQLiteDatabase db = dbHelper.getReadableDatabase();
-
-			// Define a projection that specifies which columns from the database
-			// you will actually use after this query.
+			if (inputParameters.length == 2) {
+				resetQuest();			
+				Main.difficulty = inputParameters[0];
+				// Define a projection that specifies which columns from the database
+				// you will actually use after this query.
+				String[] projection = {
+					    Contract.Routes.COLUMN_NAME_TIMESTAMP,
+					    Contract.Routes.COLUMN_NAME_DIFFICULTY_LEVEL,
+					    Contract.Routes.COLUMN_NAME_QUESTIONID_SET,
+					    };
+				
+				
+				String selection = Contract.Routes.COLUMN_NAME_DIFFICULTY_LEVEL + "=?";
+				
+				String[] selectionArgs = {Main.difficulty};
+	
+				// How you want the results sorted in the resulting Cursor
+				String sortOrder =
+						Contract.Routes.COLUMN_NAME_TIMESTAMP + " ASC";
+						// Contract.Questions._ID + " ASC";
+	
+				Cursor cursor = db.query(
+					Contract.Routes.TABLE_NAME,               // The table to query
+				    projection,                               // The columns to return
+				    selection,                                // The columns for the WHERE clause
+				    selectionArgs,                            // The values for the WHERE clause
+				    null,                                     // don't group the rows
+				    null,                                     // don't filter by row groups
+				    sortOrder                                 // The sort order
+				    );
+				
+				cursor.moveToFirst();
+				
+				questionSet = cursor.getString(
+					    cursor.getColumnIndexOrThrow(Contract.Routes.COLUMN_NAME_QUESTIONID_SET)
+						);
+				Main.QUESTIONID_SET = questionSet.split(",");
+			}
+			questionId = Main.QUESTIONID_SET[++Main.QINDEX];
 			String[] projection = {
 			    Contract.Questions._ID,
-			    Contract.Questions.COLUMN_NAME_QUESTION
+			    Contract.Questions.COLUMN_NAME_QUESTION,
+			    Contract.Questions.COLUMN_NAME_FEATURE_ID
 			    };
 			
-			String selection = Contract.Questions.COLUMN_NAME_FEATURE_ID + "=?";
+			String selection = Contract.Questions._ID + "=?";
 			
-			String[] selectionArgs = {featureId};
+			String[] selectionArgs = {questionId};
 
 			// How you want the results sorted in the resulting Cursor
-			String sortOrder =
-					Contract.Questions._ID + " ASC";
+			//String sortOrder =
+			//		Contract.Questions._ID + " ASC";
 
 			Cursor cursor = db.query(
 					Contract.Questions.TABLE_NAME,  // The table to query
@@ -86,17 +121,22 @@ public class Questions extends Activity {
 			    selection,                                // The columns for the WHERE clause
 			    selectionArgs,                            // The values for the WHERE clause
 			    null,                                     // don't group the rows
-			    null,                                     // don't filter by row groups
-			    sortOrder                                 // The sort order
+			    null,
+			    null                                      // Sort order not required
+			    // don't filter by row groups
+			    //sortOrder                                 // The sort order
 			    );
 			
 			cursor.moveToFirst();
 			
-			qId = Integer.toString(cursor.getInt(
-				    cursor.getColumnIndexOrThrow(Contract.Questions._ID)));
+			//qId = Integer.toString(cursor.getInt(
+			//	    cursor.getColumnIndexOrThrow(Contract.Questions._ID)));
+			qId = questionId;
 			question = cursor.getString(
 			    cursor.getColumnIndexOrThrow(Contract.Questions.COLUMN_NAME_QUESTION)
 			);
+			featureId = cursor.getString(
+				    cursor.getColumnIndexOrThrow(Contract.Questions.COLUMN_NAME_FEATURE_ID));
 			  		
 			String[] optionProjection = {
 					Contract.Options._ID,
@@ -105,7 +145,7 @@ public class Questions extends Activity {
 				    };
 			selection = Contract.Options.COLUMN_NAME_QUESTION_ID + "=?";
 			selectionArgs[0] = qId;
-			sortOrder = Contract.Options._ID + " ASC";
+			String sortOrder = Contract.Options._ID + " ASC";
 			
 			cursor = db.query(
 					Contract.Options.TABLE_NAME,  // The table to query
@@ -133,7 +173,7 @@ public class Questions extends Activity {
 		setContentView(R.layout.activity_questions);
 		
 		TextView scoreText =(TextView)findViewById(R.id.textViewScore);
-		scoreText.setText(scoreText.getText()+Integer.toString(Main.TOTALSCORE));
+		scoreText.setText("Score: "+Integer.toString(Main.TOTALSCORE));
 		
 		questionText = (TextView)findViewById(R.id.text_view_question);
 		questionText.setText(question);
@@ -150,6 +190,16 @@ public class Questions extends Activity {
 		Main.PROGRESS_QUESTION.clear();
 		Main.PROGRESS_ANSWER.clear();
 		Main.PROGRESS_ANS_CORRECT.clear();
+		Main.QUESTIONID_SET  = new String[20];
+		Main.QINDEX = -1;
+	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		TextView scoreText =(TextView)findViewById(R.id.textViewScore);
+		scoreText.setText("");
+		scoreText.setText("Score: " + Integer.toString(Main.TOTALSCORE));
 	}
 
 	@Override
@@ -200,7 +250,7 @@ public class Questions extends Activity {
     		//Add answer correctness flag to PROGRESS_ANS_CORRECT
     		Main.PROGRESS_ANS_CORRECT.add(correctAnswer);    		
     		Intent intentSubmit = new Intent(this, TransitionScreen.class);
-    		intentSubmit.putExtra(Main.KEY_TRANSITION, featureId + " " + qId + " " + correctAnswer + " " + Integer.toString((Integer.parseInt(featureId) + 1)));
+    		intentSubmit.putExtra(Main.KEY_TRANSITION, featureId + " " + qId + " " + correctAnswer);
         	startActivity(intentSubmit);
         	this.finish();
         	break;

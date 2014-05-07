@@ -51,7 +51,7 @@ public class TransitionScreen extends Activity {
 		ImageView image = (ImageView)findViewById(R.id.imageView1);
 		TextView message_text = (TextView)findViewById(R.id.textView_win_msg);
 		
-		if (inputParameters.length == 4) {
+		if (inputParameters.length == 3) {
 			SQLiteDatabase db = dbHelper.getReadableDatabase();
 
 			// Define a projection that specifies which columns from the database
@@ -139,8 +139,19 @@ public class TransitionScreen extends Activity {
 			{
 				answer_Label.setVisibility(View.GONE);
 				answer_Text.setVisibility(View.GONE);
-				message = "Congratulations, you have won 10000 points";
-				Main.TOTALSCORE += 10000;
+				
+				if(Main.difficulty.equals("easy")) {
+					Main.TOTALSCORE += 1000;
+					message = "Congratulations, you have won 1000 points";
+				}
+				else if(Main.difficulty.equals("medium")) {
+					Main.TOTALSCORE += 2000;	
+					message = "Congratulations, you have won 2000 points";	
+				}
+				else {
+					Main.TOTALSCORE += 3000;
+					message = "Congratulations, you have won 3000 points";
+				}
 			}
 		}		
 
@@ -173,18 +184,18 @@ public class TransitionScreen extends Activity {
     /** Called when the user clicks the Level 1, Level 2, Level 3 buttons or the Settings button */
     public void nextQuestionClick(View view) {		
 		
-		String[] inputParameters = getIntent().getStringExtra(Main.KEY_TRANSITION).split("\\s+");
+		//String[] inputParameters = getIntent().getStringExtra(Main.KEY_TRANSITION).split("\\s+");
 		
-		if(inputParameters[3].equals("3"))
+		if(Main.QINDEX>=20 || Main.QUESTIONID_SET.length == Main.QINDEX +1) 
 		{
 			Intent intent = new Intent(this, WinScreen.class);		
 			startActivity(intent);
-			this.finish();
+			this.finish();	
 		}
 		else
 		{
 			Intent intent1 = new Intent(this, Questions.class);	
-			intent1.putExtra(Main.KEY_QUESTION, inputParameters[3]);		
+			intent1.putExtra(Main.KEY_QUESTION, String.valueOf(Main.QINDEX));		
 			startActivity(intent1);
 			this.finish();
 		}
