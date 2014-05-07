@@ -38,6 +38,7 @@ public class Hints extends Activity {
         	break;
     	case R.id.imageButton2:
     		Intent intentDirectionHint = new Intent(this, DirectionHint.class);
+    		intentDirectionHint.putExtra(Main.KEY_HINT, featureId);
         	startActivity(intentDirectionHint);
         	this.finish();
         	break;

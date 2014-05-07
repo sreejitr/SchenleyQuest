@@ -8,62 +8,67 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".Main" >
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="mainButtonClick"
-        android:text="@string/options" />
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/schenleyq_image"
+        android:src="@drawable/app_back" />
 
-    <Button
-        android:id="@+id/button3"
+    <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button4"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="38dp"
-        android:onClick="mainButtonClick"
-        android:text="@string/level_3" />
+        android:layout_alignTop="@+id/imageView1"
+        android:layout_centerHorizontal="true"
+        android:text="@string/schenleyq_image"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp" />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button3"
+        android:layout_below="@+id/textView1"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="28dp"
+        android:layout_marginTop="53dp"
+        android:background="@drawable/walk_through_button"
         android:onClick="mainButtonClick"
         android:text="@string/level_1" />
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="200dp"
-        android:layout_height="180dp"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/button3"
-        android:layout_marginTop="21dp"
-        android:contentDescription="@string/schenleyq_image"
-        android:src="@drawable/schenleyq" />
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button2"
+        android:layout_alignBottom="@+id/button2"
+        android:layout_alignRight="@+id/textView1"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/explore_button"
+        android:onClick="mainButtonClick"
+        android:text="@string/level_3" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
         android:layout_below="@+id/button1"
+        android:layout_marginLeft="22dp"
+        android:background="@drawable/journey_button"
         android:onClick="mainButtonClick"
         android:text="@string/level_2" />
 
-    <TextView
+    <Button
+        android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView1"
-        android:layout_alignRight="@+id/button4"
-        android:layout_marginBottom="54dp"
-        android:textColor="#680000"
-        android:text="@string/schenleyq_image"
-        android:textSize="20sp" />
-    	
+        android:layout_alignLeft="@+id/button1"
+        android:layout_below="@+id/button3"
+        android:background="@drawable/options_button"
+        android:onClick="mainButtonClick"
+        android:text="@string/options" />
+
 </RelativeLayout>
