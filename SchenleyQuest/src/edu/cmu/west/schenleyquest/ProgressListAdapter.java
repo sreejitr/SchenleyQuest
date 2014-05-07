@@ -1,9 +1,8 @@
-package com.example.schenleyquest;
+package edu.cmu.west.schenleyquest;
 
 import java.util.List;
 
-import com.example.schenleyquest.Progress.ListViewItem;
-
+import edu.cmu.west.schenleyquest.Progress.ListViewItem;
 import android.app.Activity;  
 import android.content.Context;
 import android.view.LayoutInflater;  

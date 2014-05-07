@@ -42,4 +42,7 @@
 	<string name="quitQuest">Quit Quest</string>
 	<string name="title_activity_progress_view">ProgressView</string>
     <string name="title_activity_progress">Progress</string>
+    <string name="unknown_activity_request_code">Unknown activity request code</string>
+    <string name="no_resolution">No resolution</string>
+    <string name="resolved">Resolved</string>
 </resources>

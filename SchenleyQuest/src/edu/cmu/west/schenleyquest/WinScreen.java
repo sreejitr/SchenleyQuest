@@ -1,4 +1,4 @@
-package com.example.schenleyquest;
+package edu.cmu.west.schenleyquest;
 
 import android.os.Bundle;
 import android.app.Activity;

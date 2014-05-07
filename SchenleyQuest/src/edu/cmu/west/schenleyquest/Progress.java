@@ -1,4 +1,4 @@
-package com.example.schenleyquest;
+package edu.cmu.west.schenleyquest;
 
 import java.util.ArrayList;
 import java.util.List;

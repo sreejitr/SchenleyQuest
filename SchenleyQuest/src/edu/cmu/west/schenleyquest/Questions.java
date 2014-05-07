@@ -1,10 +1,9 @@
-package com.example.schenleyquest;
+package edu.cmu.west.schenleyquest;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 
 import android.app.Activity;
 import android.content.Intent;
