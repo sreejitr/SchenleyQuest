@@ -1,4 +1,4 @@
-package com.example.schenleyquest;
+package edu.cmu.west.schenleyquest;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
