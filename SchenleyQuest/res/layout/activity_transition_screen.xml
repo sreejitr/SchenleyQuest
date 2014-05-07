@@ -10,13 +10,12 @@
 
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:alpha="0.25"
-        android:contentDescription="@string/background_image"
-        android:src="@drawable/new_year_152044_640" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/schenleyq_image"
+        android:src="@drawable/app_back" />
 
     <TextView
         android:id="@+id/textView_score"

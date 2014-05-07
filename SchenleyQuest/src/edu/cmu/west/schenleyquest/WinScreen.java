@@ -31,7 +31,7 @@ public class WinScreen extends Activity {
 		
 		if(Main.difficulty.equals("easy"))
 		{
-			if(Main.TOTALSCORE >= 13500) {
+			if(Main.TOTALSCORE >= 5400) {
 				int imageResource = getResources().getIdentifier(uri_rookie, null, getPackageName());
 
 				imageview= (ImageView)findViewById(R.id.imageView2);
@@ -41,7 +41,7 @@ public class WinScreen extends Activity {
 		}
 		else if(Main.difficulty.equals("medium"))
 		{
-			if(Main.TOTALSCORE >= 27000) {
+			if(Main.TOTALSCORE >= 16200) {
 				int imageResource = getResources().getIdentifier(uri_experienced, null, getPackageName());
 
 				imageview= (ImageView)findViewById(R.id.imageView2);
@@ -51,7 +51,7 @@ public class WinScreen extends Activity {
 		}
 		else if(Main.difficulty.equals("hard"))
 		{
-			if(Main.TOTALSCORE >= 40500) {
+			if(Main.TOTALSCORE >= 32400) {
 				int imageResource = getResources().getIdentifier(uri_expert, null, getPackageName());
 
 				imageview= (ImageView)findViewById(R.id.imageView2);
