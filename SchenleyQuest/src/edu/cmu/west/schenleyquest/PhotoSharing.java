@@ -81,8 +81,7 @@ pendingCall, Bundle data) {
         });
     }
 
-    private FacebookDialog.PhotoShareDialogBuilder
-createShareDialogBuilderForPhoto(Bitmap... photos) {
+    private FacebookDialog.PhotoShareDialogBuilder createShareDialogBuilderForPhoto(Bitmap[] photos) {
         return new FacebookDialog.PhotoShareDialogBuilder(this)
                 .addPhotos(Arrays.asList(photos));
     }
@@ -164,17 +163,14 @@ REQUEST_TAKE_PHOTO);
 
     public void shareButtonClick(View view) {
    
-        FacebookDialog shareDialog = new
-FacebookDialog.ShareDialogBuilder(this)
+        /*FacebookDialog shareDialog = new FacebookDialog.ShareDialogBuilder(this)
         .setLink("https://pittsburghparks.org/schenley")
         .build();
-        uiHelper.trackPendingDialogCall(shareDialog.present());        
-    
-     /*   Bitmap myBitmap =
-BitmapFactory.decodeFile(photoFile.getAbsolutePath());  
-        FacebookDialog shareDialog =
-createShareDialogBuilderForPhoto(myBitmap).build();        
-        uiHelper.trackPendingDialogCall(shareDialog.present());*/
+        uiHelper.trackPendingDialogCall(shareDialog.present());*/        
+    	Bitmap[] myBitmap = new Bitmap[1];
+    	myBitmap[0]  = BitmapFactory.decodeFile(photoFile.getAbsolutePath());  
+        FacebookDialog shareDialog = createShareDialogBuilderForPhoto(myBitmap).build();        
+        uiHelper.trackPendingDialogCall(shareDialog.present());
         
     }
 
