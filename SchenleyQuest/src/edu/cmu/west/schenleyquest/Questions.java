@@ -266,7 +266,9 @@ public class Questions extends Activity {
     		this.finish();
     		break;
     	case R.id.buttonPhoto:
-    		dispatchTakePictureIntent();
+    		//dispatchTakePictureIntent();
+    		Intent intentPhotoSharing = new Intent(this, PhotoSharing.class);
+    		startActivity(intentPhotoSharing);
     		break;
     	case R.id.buttonProgress:
     		Intent intentProgress = new Intent(this, Progress.class);

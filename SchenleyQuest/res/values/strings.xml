@@ -48,5 +48,5 @@
     <string name="resolved">Resolved</string>
     <string name="app_id">1417809311816995</string>
     <string name="title_activity_photo_sharing">PhotoSharing</string>
-
+	<string name="share_button">Share on Facebook</string>
 </resources>

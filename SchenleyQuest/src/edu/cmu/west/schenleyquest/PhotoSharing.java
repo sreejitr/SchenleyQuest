@@ -54,8 +54,7 @@ public class PhotoSharing extends Activity {
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is
-present.
+        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.photo_sharing, menu);
         return true;
     }
@@ -164,18 +163,18 @@ REQUEST_TAKE_PHOTO);
     }    
 
     public void shareButtonClick(View view) {
-   /*
+   
         FacebookDialog shareDialog = new
 FacebookDialog.ShareDialogBuilder(this)
         .setLink("https://pittsburghparks.org/schenley")
         .build();
         uiHelper.trackPendingDialogCall(shareDialog.present());        
-    */
-        Bitmap myBitmap =
+    
+     /*   Bitmap myBitmap =
 BitmapFactory.decodeFile(photoFile.getAbsolutePath());  
         FacebookDialog shareDialog =
 createShareDialogBuilderForPhoto(myBitmap).build();        
-        uiHelper.trackPendingDialogCall(shareDialog.present());
+        uiHelper.trackPendingDialogCall(shareDialog.present());*/
         
     }
 
