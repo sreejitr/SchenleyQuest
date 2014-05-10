@@ -1,7 +1,14 @@
-<!-- Layout for individual news entries in a list -->
+<!-- Layout for individual entries in a list -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:background="@drawable/listitem_bg"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
     
     <!-- Icon shown next to the title/subtitle -->
     <ImageView
@@ -10,6 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
+        android:contentDescription="@string/answer_type"
         android:padding="3dp" />
         
     <!-- Title of the news entry -->

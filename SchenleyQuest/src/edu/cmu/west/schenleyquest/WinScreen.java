@@ -32,31 +32,33 @@ public class WinScreen extends Activity {
 		if(Main.difficulty.equals("easy"))
 		{
 			if(Main.TOTALSCORE >= 5400) {
-				int imageResource = getResources().getIdentifier(uri_rookie, null, getPackageName());
-
-				imageview= (ImageView)findViewById(R.id.imageView2);
-				Drawable res = getResources().getDrawable(imageResource);
-				imageview.setImageDrawable(res);
+				//int imageResource = getResources().getIdentifier(uri_rookie, null, getPackageName());
+				imageview= (ImageView)findViewById(R.id.imageView2); 
+				imageview.setImageResource(R.drawable.rookie_badge);
+				//Drawable res = getResources().getDrawable(imageResource);
+				//imageview.setImageDrawable(res);
 			}
 		}
 		else if(Main.difficulty.equals("medium"))
 		{
 			if(Main.TOTALSCORE >= 16200) {
-				int imageResource = getResources().getIdentifier(uri_experienced, null, getPackageName());
+				//int imageResource = getResources().getIdentifier(uri_experienced, null, getPackageName());
 
-				imageview= (ImageView)findViewById(R.id.imageView2);
-				Drawable res = getResources().getDrawable(imageResource);
-				imageview.setImageDrawable(res);
+				imageview= (ImageView)findViewById(R.id.imageView2); 
+				imageview.setImageResource(R.drawable.experienced_badge);
+				//Drawable res = getResources().getDrawable(imageResource);
+				//imageview.setImageDrawable(res);
 			}
 		}
 		else if(Main.difficulty.equals("hard"))
 		{
 			if(Main.TOTALSCORE >= 32400) {
-				int imageResource = getResources().getIdentifier(uri_expert, null, getPackageName());
+				//int imageResource = getResources().getIdentifier(uri_expert, null, getPackageName());
 
-				imageview= (ImageView)findViewById(R.id.imageView2);
-				Drawable res = getResources().getDrawable(imageResource);
-				imageview.setImageDrawable(res);
+				imageview= (ImageView)findViewById(R.id.imageView2); 
+				imageview.setImageResource(R.drawable.expert_badge);
+				//Drawable res = getResources().getDrawable(imageResource);
+				//imageview.setImageDrawable(res);
 			}
 		}
 		

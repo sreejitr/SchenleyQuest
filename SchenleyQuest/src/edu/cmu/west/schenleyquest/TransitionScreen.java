@@ -46,9 +46,9 @@ public class TransitionScreen extends Activity {
 		
 		String[] inputParameters = getIntent().getStringExtra(Main.KEY_TRANSITION).split("\\s+");
 		
-		TextView answer_Label = (TextView)findViewById(R.id.textView_score);
+		//TextView answer_Label = (TextView)findViewById(R.id.textView_score);
 		TextView answer_Text = (TextView)findViewById(R.id.textView_option);
-		ImageView image = (ImageView)findViewById(R.id.imageView1);
+		ImageView image = (ImageView)findViewById(R.id.imageView2);
 		TextView message_text = (TextView)findViewById(R.id.textView_win_msg);
 		
 		if (inputParameters.length == 3) {
@@ -121,23 +121,23 @@ public class TransitionScreen extends Activity {
 			
 			if(inputParameters[2].equals("no"))
 			{
-				RelativeLayout.LayoutParams paramsBannerText = (RelativeLayout.LayoutParams) message_text.getLayoutParams();
-				paramsBannerText.topMargin = getDpAsPixels(70);
+				//RelativeLayout.LayoutParams paramsBannerText = (RelativeLayout.LayoutParams) message_text.getLayoutParams();
+				//paramsBannerText.topMargin = getDpAsPixels(70);
 				
-				RelativeLayout.LayoutParams paramsAnswer = (RelativeLayout.LayoutParams) answer_Label.getLayoutParams();
-				paramsAnswer.addRule(RelativeLayout.BELOW, R.id.textView_win_msg);
+				//RelativeLayout.LayoutParams paramsAnswer = (RelativeLayout.LayoutParams) answer_Label.getLayoutParams();
+				//paramsAnswer.addRule(RelativeLayout.BELOW, R.id.textView_win_msg);
 				
-				int topPadAns = getDpAsPixels(30);
-				answer_Label.setPadding(0, topPadAns, 0, 0);
+				//int topPadAns = getDpAsPixels(30);
+				//answer_Label.setPadding(0, topPadAns, 0, 0);
 				image.setVisibility(View.GONE);
 				//answer_Label.setLayoutParams(paramsAnswer);
-				answer_Label.setVisibility(View.VISIBLE);
+				//answer_Label.setVisibility(View.GONE);
 				answer_Text.setVisibility(View.VISIBLE);
 				message = "Sorry, your answer is incorrect";			
 			}
 			else
 			{
-				answer_Label.setVisibility(View.GONE);
+				//answer_Label.setVisibility(View.GONE);
 				answer_Text.setVisibility(View.GONE);
 				
 				if(Main.difficulty.equals("easy")) {
@@ -155,7 +155,7 @@ public class TransitionScreen extends Activity {
 			}
 		}		
 
-		answer_Text.setText(answer);
+		answer_Text.setText("Answer: " + answer);
 		
 		TextView description_text = (TextView)findViewById(R.id.textViewdesc);
 		description_text.setText(desc);
@@ -168,11 +168,11 @@ public class TransitionScreen extends Activity {
 	 * @param dp
 	 * @return
 	 */
-	private int getDpAsPixels(int dp) {
-		float scale = getResources().getDisplayMetrics().density;
-		int dpAsPixels = (int) (dp*scale + 0.5f);
-		return dpAsPixels;
-	}
+//	private int getDpAsPixels(int dp) {
+//		float scale = getResources().getDisplayMetrics().density;
+//		int dpAsPixels = (int) (dp*scale + 0.5f);
+//		return dpAsPixels;
+//	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

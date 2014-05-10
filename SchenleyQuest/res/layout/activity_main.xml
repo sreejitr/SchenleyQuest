@@ -2,39 +2,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".Main" >
 
-    <ImageView
+    <ImageView 
         android:id="@+id/imageView1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
-        android:scaleType="centerCrop"
         android:contentDescription="@string/schenleyq_image"
-        android:src="@drawable/app_back" />
+        android:scaleType="centerCrop"
+        android:src="@drawable/sqmain" />
 
-    <TextView
-        android:id="@+id/textView1"
+    <Button
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageView1"
-        android:layout_centerHorizontal="true"
-        android:text="@string/schenleyq_image"
-        android:textColor="#FFFFFF"
-        android:textSize="40sp" />
+        android:layout_alignLeft="@+id/button3"
+        android:layout_centerVertical="true"
+        android:background="@drawable/journey_button"
+        android:onClick="mainButtonClick"
+        android:text="@string/level_2" />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="53dp"
-        android:background="@drawable/walk_through_button"
+        android:layout_above="@+id/button2"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_marginBottom="17dp"
+        android:background="@drawable/walkthrough_button"
         android:onClick="mainButtonClick"
         android:text="@string/level_1" />
 
@@ -42,33 +43,22 @@
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button2"
-        android:layout_alignBottom="@+id/button2"
-        android:layout_alignRight="@+id/textView1"
-        android:layout_marginRight="15dp"
-        android:background="@drawable/explore_button"
+        android:layout_alignLeft="@+id/imageView1"
+        android:layout_below="@+id/button2"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/expedition_button"
         android:onClick="mainButtonClick"
         android:text="@string/level_3" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/button1"
-        android:layout_marginLeft="22dp"
-        android:background="@drawable/journey_button"
-        android:onClick="mainButtonClick"
-        android:text="@string/level_2" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button1"
+        android:layout_alignLeft="@+id/button3"
         android:layout_below="@+id/button3"
+        android:layout_marginTop="14dp"
         android:background="@drawable/options_button"
-        android:onClick="mainButtonClick"
-        android:text="@string/options" />
+        android:onClick="mainButtonClick" />
 
 </RelativeLayout>
