@@ -209,6 +209,8 @@ public class Questions extends Activity {
 	}
 	
 	public void questionRadioButtonClick(View view) {
+		TextView textView = (TextView)findViewById(R.id.textView1);
+		textView.setVisibility(View.GONE);
 		Button submitButton = (Button)findViewById(R.id.submit_button);
 		if (submitButton.getVisibility() == View.INVISIBLE)
 			submitButton.setVisibility(View.VISIBLE);

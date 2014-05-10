@@ -3,39 +3,44 @@
     style="@style/AppTheme"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".Hints" >
     
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/schenleyq_image"
+        android:src="@drawable/question_back" />
+
     <ImageButton
         android:id="@+id/imageButton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/imageButton2"
+        android:layout_alignTop="@+id/imageView1"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="51dp"
+        android:layout_marginTop="56dp"
+        android:background="#000000"
+        android:contentDescription="@string/hint_text_button_image"
         android:onClick="hintButtonClick"
-        android:src="@drawable/hint_text_button" 
-        android:contentDescription="@string/hint_text_button_image" />
+        android:src="@drawable/hinttext_button" />
 
     <ImageButton
         android:id="@+id/imageButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView1"
         android:layout_alignLeft="@+id/imageButton1"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="78dp"
+        android:layout_marginBottom="44dp"
+        android:background="#000000"
+        android:contentDescription="@string/direction_btnimage"
         android:onClick="hintButtonClick"
-        android:src="@drawable/direction_hint_button" 
-	    android:contentDescription="@string/direction_btnimage" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="@string/hint_page" 
-        android:textSize="20sp"/>
+        android:src="@drawable/directionhint_button" />
 
 </RelativeLayout>

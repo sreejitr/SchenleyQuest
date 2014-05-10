@@ -2,11 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".Questions" >
+    
     
     <ImageView
         android:id="@+id/imageView1"
@@ -15,84 +17,127 @@
         android:layout_centerInParent="true"
         android:scaleType="centerCrop"
         android:contentDescription="@string/schenleyq_image"
-        android:src="@drawable/app_back" />
-
-    <Button
-        android:id="@+id/hint_button"
-        android:layout_width="wrap_content"
-        android:layout_height="32dp"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/submit_button"
-        android:onClick="questionsButtonClick"
-        android:text="@string/hint"
-        android:textSize="12sp" />
-
-    <TextView
-        android:id="@+id/text_view_question"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="48dp"
-        android:text="@string/hello_world"
-        android:textSize="@dimen/activity_vertical_margin" />
-
-    <RadioGroup
-        android:id="@+id/radioOptions"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/text_view_question"
-        android:layout_below="@+id/text_view_question" >
-        
-        <RadioButton
-        	android:id="@+id/radioButton1"
-        	android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-        	android:layout_marginTop="32dp"
-        	android:onClick="questionRadioButtonClick"
-        	android:text="@string/Option1" />
-
-    	<RadioButton
-        	android:id="@+id/radioButton2"
-        	android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-        	android:onClick="questionRadioButtonClick"
-        	android:text="@string/Option2" />
-
-    	<RadioButton
-        	android:id="@+id/radioButton3"
-        	android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-        	android:onClick="questionRadioButtonClick"
-        	android:text="@string/Option3" />
-
-    	<RadioButton
-        	android:id="@+id/radioButton4"
-        	android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-        	android:onClick="questionRadioButtonClick"
-        	android:text="@string/Option4" />
-    </RadioGroup>
-
-    <Button
-        android:id="@+id/submit_button"
-        android:layout_width="wrap_content"
-        android:layout_height="36dp"
-        android:layout_above="@+id/buttonBackToMenu"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="22dp"
-        android:visibility="invisible"
-        android:onClick="questionsButtonClick"
-        android:text="@string/submit_answer"
-        android:textSize="14sp" />
+        android:src="@drawable/question_back" />
 
     <Button
         android:id="@+id/buttonBackToMenu"
         android:layout_width="wrap_content"
         android:layout_height="32dp"
-        android:layout_alignLeft="@+id/text_view_question"
         android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/buttonProgress"
+        android:background="@drawable/quitquest_button"
         android:onClick="questionsButtonClick"
         android:text="@string/quitQuest"
+        android:textSize="12sp" /> 
+ 
+    <Button
+        android:id="@+id/buttonProgress"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="75dp"
+        android:layout_height="32dp"
+        android:layout_alignParentTop="true"
+        android:onClick="questionsButtonClick"
+        android:background="@drawable/progress_button"
+        android:text="@string/progress"
+        android:textSize="12sp" />
+
+    <ScrollView 
+        android:layout_width="fill_parent" 
+        android:layout_height="fill_parent" 
+        android:layout_marginTop="10dp" 
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_below="@+id/buttonProgress"
+        android:background="@drawable/qsrel_bg" 
+        android:layout_above="@+id/submit_button">
+
+    <RelativeLayout
+        android:id="@+id/firstRectangle"
+        android:layout_width="fill_parent"
+        android:layout_height="283dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="17dp"
+        android:orientation="vertical" >
+
+        <RadioGroup
+            android:id="@+id/radioOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/text_view_question"
+            android:layout_below="@+id/text_view_question">
+
+            <RadioButton
+                android:id="@+id/radioButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:onClick="questionRadioButtonClick"
+                android:text="@string/Option1"  
+           		android:textSize="18sp"/>
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="questionRadioButtonClick"
+                android:text="@string/Option2" 
+                android:textSize="18sp"/>
+
+            <RadioButton
+                android:id="@+id/radioButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="questionRadioButtonClick"
+                android:text="@string/Option3" 
+                android:textSize="18sp"/>
+
+            <RadioButton
+                android:id="@+id/radioButton4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="questionRadioButtonClick"
+                android:text="@string/Option4" 
+                android:textSize="18sp"/>
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/text_view_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="@string/hello_world"
+            android:textSize="19sp" />
+
+    </RelativeLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/hint_button"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_alignBaseline="@+id/buttonBackToMenu"
+        android:layout_alignBottom="@+id/buttonBackToMenu"
+        android:layout_alignRight="@+id/imageView1"
+        android:layout_toRightOf="@+id/submit_button"
+        android:background="@drawable/hints_button"
+        android:onClick="questionsButtonClick"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/buttonPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/submit_button"
+        android:layout_below="@+id/submit_button"
+        android:layout_toRightOf="@+id/buttonBackToMenu"
+        android:background="@drawable/camera_button"
+        android:onClick="questionsButtonClick"
+        android:text="@string/photo"
         android:textSize="12sp" />
 
     <TextView
@@ -101,29 +146,28 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/buttonProgress"
         android:layout_alignBottom="@+id/buttonProgress"
-        android:layout_centerHorizontal="true"
+        android:layout_alignLeft="@+id/submit_button"
         android:text="@string/score" />
 
-    <Button
-        android:id="@+id/buttonProgress"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="75dp"
-        android:layout_height="32dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/text_view_question"
-        android:onClick="questionsButtonClick"
-        android:text="@string/progress"
-        android:textSize="12sp" />
-
-    <Button
-        android:id="@+id/buttonPhoto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/buttonBackToMenu"
-        android:layout_alignTop="@+id/buttonBackToMenu"
+    <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/hint_button"
+        	android:layout_centerHorizontal="true"
+        	android:layout_marginBottom="21dp"
+            android:text="@string/optext"
+            android:textSize="15sp" />
+    <Button 
+        android:id="@+id/submit_button"
+        android:layout_width="82dp"
+        android:layout_height="36dp"
+        android:layout_above="@+id/hint_button"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="21dp"
+        android:background="@drawable/submit_button"
         android:onClick="questionsButtonClick"
-        android:text="@string/photo"
-        android:textSize="12sp" />
+        android:textSize="14sp"
+        android:visibility="invisible" />
 
 </RelativeLayout>
