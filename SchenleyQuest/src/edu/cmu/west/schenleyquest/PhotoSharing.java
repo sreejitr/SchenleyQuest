@@ -3,21 +3,11 @@ package edu.cmu.west.schenleyquest;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
-
-import com.facebook.FacebookException;
-import com.facebook.FacebookOperationCanceledException;
 import com.facebook.Session.StatusCallback;
 import com.facebook.UiLifecycleHelper;
-import com.facebook.model.GraphObject;
-import com.facebook.model.OpenGraphAction;
-import com.facebook.model.OpenGraphObject;
 import com.facebook.widget.FacebookDialog;
-import com.facebook.widget.WebDialog;
-
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -26,12 +16,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.service.textservice.SpellCheckerService.Session;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 public class PhotoSharing extends Activity {
     
@@ -41,7 +29,9 @@ public class PhotoSharing extends Activity {
     String mCurrentPhotoPath;
     String imageFileName;
     File photoFile;
-        
+
+    static final int REQUEST_TAKE_PHOTO = 1;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,56 +55,64 @@ public class PhotoSharing extends Activity {
     }
     
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode,
+Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
        
         if (requestCode == REQUEST_TAKE_PHOTO)
         {
-        	//If either photo was not clicked or not saved, 
-        	//or if Facebook app is not present or photo sharing is not allowed
-        	//then kill this activity and return to Questions activity
-        	boolean photoSharingAllowed = FacebookDialog.canPresentShareDialog(this,FacebookDialog.ShareDialogFeature.PHOTOS);
-        	
-        	if(photoFile==null || photoFile.length()<10000 || photoSharingAllowed==false)
-        	{
-        		//Kill this activity and return to questions view
-        		this.finish();
-        	}
+            //If either photo was not clicked or not saved,
+            //or if Facebook app is not present or photo sharing is not allowed
+            //then kill this activity and return to Questions activity
+            boolean photoSharingAllowed =
+FacebookDialog.canPresentShareDialog(this,FacebookDialog.ShareDialogFeature.PHOTOS);
+            
+            if(photoFile==null || photoFile.length()<10000 ||
+photoSharingAllowed==false)
+            {
+                //Kill this activity and return to questions view
+                this.finish();
+            }
+            
+            if(photoFile!=null && photoFile.length()>10000 &&
+called_once==false)
+            {
+                Bitmap myBitmap =
+BitmapFactory.decodeFile(photoFile.getAbsolutePath());
+                ImageView img = (ImageView) findViewById(R.id.imageCapture);
+                img.setImageBitmap(myBitmap);
+                called_once=true;                   
+            }
 
         }
         
-        uiHelper.onActivityResult(requestCode, resultCode, data, new FacebookDialog.Callback() {
+        uiHelper.onActivityResult(requestCode, resultCode, data, new
+FacebookDialog.Callback() {
             @Override
-            public void onError(FacebookDialog.PendingCall pendingCall, Exception error, Bundle data) {
-                Log.e("Activity", String.format("Error: %s", error.toString()));
+            public void onError(FacebookDialog.PendingCall pendingCall,
+Exception error, Bundle data) {
+                Log.e("Activity", String.format("Error: %s",
+error.toString()));
             }
 
             @Override
-            public void onComplete(FacebookDialog.PendingCall pendingCall, Bundle data) {
+            public void onComplete(FacebookDialog.PendingCall
+pendingCall, Bundle data) {
                 Log.i("Activity", "Success!");
             }
         });
     }
 
-    private FacebookDialog.PhotoShareDialogBuilder createShareDialogBuilderForPhoto(Bitmap[] photos) {
+    private FacebookDialog.PhotoShareDialogBuilder
+createShareDialogBuilderForPhoto(Bitmap[] photos) {
         return new FacebookDialog.PhotoShareDialogBuilder(this)
-                .addPhotos(Arrays.asList(photos)).setPlace("162028340528993");
+                .addPhotos(Arrays.asList(photos));
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        uiHelper.onResume();   
-       
-        if(photoFile!=null && photoFile.length()>10000 &&
-called_once==false)
-        {
-            Bitmap myBitmap =
-BitmapFactory.decodeFile(photoFile.getAbsolutePath());
-            ImageView img = (ImageView) findViewById(R.id.imageCapture);
-            img.setImageBitmap(myBitmap);
-            called_once=true;        
-        }
+        uiHelper.onResume();          
     }
 
     @Override
@@ -137,7 +135,8 @@ BitmapFactory.decodeFile(photoFile.getAbsolutePath());
     
     private File createImageFile() throws IOException {
         // Create an image file name
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String timeStamp = new
+SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         imageFileName = "JPEG_" + timeStamp + "_";
         File storageDir = Environment.getExternalStoragePublicDirectory(
                 Environment.DIRECTORY_PICTURES);
@@ -146,14 +145,14 @@ BitmapFactory.decodeFile(photoFile.getAbsolutePath());
         // Save a file: path for use with ACTION_VIEW intents
         mCurrentPhotoPath = "file:" + image.getAbsolutePath();
         return image;
-    }
-    
-    static final int REQUEST_TAKE_PHOTO = 1;
+    }        
 
     private void dispatchTakePictureIntent() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        Intent takePictureIntent = new
+Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         // Ensure that there's a camera activity to handle the intent
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+        if (takePictureIntent.resolveActivity(getPackageManager()) !=
+null) {
             // Create the File where the photo should go
             photoFile = null;
             try {
@@ -166,7 +165,9 @@ BitmapFactory.decodeFile(photoFile.getAbsolutePath());
             if (photoFile != null) {
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
                         Uri.fromFile(photoFile));
-                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);                                                            
+                startActivityForResult(takePictureIntent,
+REQUEST_TAKE_PHOTO);                                                          
+ 
 
             }
         }
@@ -175,11 +176,13 @@ BitmapFactory.decodeFile(photoFile.getAbsolutePath());
     public void shareButtonClick(View view) {      
         
 
-    	Bitmap[] myBitmap = new Bitmap[1];
-    	myBitmap[0]  = BitmapFactory.decodeFile(photoFile.getAbsolutePath());  
-        FacebookDialog shareDialog = createShareDialogBuilderForPhoto(myBitmap)
-        		.build();        
-        uiHelper.trackPendingDialogCall(shareDialog.present());        	
+        Bitmap[] myBitmap = new Bitmap[1];
+        myBitmap[0]  =
+BitmapFactory.decodeFile(photoFile.getAbsolutePath());  
+        FacebookDialog shareDialog =
+createShareDialogBuilderForPhoto(myBitmap)
+                .build();        
+        uiHelper.trackPendingDialogCall(shareDialog.present());            
                 
         
     }
