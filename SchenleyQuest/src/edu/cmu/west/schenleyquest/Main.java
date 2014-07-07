@@ -16,8 +16,8 @@ public class Main extends Activity {
 	
 	public static String [] QUESTIONID_SET;
 	public static int QINDEX = -1;
-	public static String difficulty = "";
-	
+	public static String DIFFICULTY = "";
+	public static int ROUTE_ID;
 	public static int TOTALSCORE = 0;
 	
 	//public static String[] PROGRESS = new String[10];

@@ -33,5 +33,21 @@ public Contract() {}
 		public static final String COLUMN_NAME_FEATURE_ID = "feature_id";
 		public static final String COLUMN_NAME_OPTION = "option";
 	}
-
+	
+	public static abstract class HighScores implements BaseColumns {
+		public static final String TABLE_NAME = "highscores";
+		public static final String COLUMN_NAME_ROUTE_ID = "route_id";
+		public static final String COLUMN_NAME_DIFFICULTY_LEVEL = "difficulty_level";
+		public static final String COLUMN_NAME_TIMESTAMP = "timestamp";
+		public static final String COLUMN_NAME_SCORE = "score";
+	}
+	
+	public static abstract class Badges implements BaseColumns {
+		public static final String TABLE_NAME = "badges";
+		public static final String COLUMN_NAME_ROUTE_ID = "route_id";
+		public static final String COLUMN_NAME_TIMESTAMP = "timestamp";
+		public static final String COLUMN_NAME_DIFFICULTY_LEVEL = "difficulty_level";
+		public static final String COLUMN_NAME_BADGE = "badge";
+		public static final String COLUMN_NAME_NO_OF_BADGES = "no_of_badges";
+	}
 }

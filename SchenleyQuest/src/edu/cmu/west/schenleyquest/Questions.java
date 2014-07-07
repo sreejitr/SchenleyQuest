@@ -2,11 +2,13 @@ package edu.cmu.west.schenleyquest;
 
 import java.io.IOException;
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.format.Time;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -56,10 +58,11 @@ public class Questions extends Activity {
 			SQLiteDatabase db = dbHelper.getReadableDatabase();
 			if (inputParameters.length == 2) {
 				resetQuest();			
-				Main.difficulty = inputParameters[0];
+				Main.DIFFICULTY = inputParameters[0];
 				// Define a projection that specifies which columns from the database
 				// you will actually use after this query.
 				String[] projection = {
+						Contract.Routes._ID,
 					    Contract.Routes.COLUMN_NAME_TIMESTAMP,
 					    Contract.Routes.COLUMN_NAME_DIFFICULTY_LEVEL,
 					    Contract.Routes.COLUMN_NAME_QUESTIONID_SET,
@@ -68,7 +71,7 @@ public class Questions extends Activity {
 				
 				String selection = Contract.Routes.COLUMN_NAME_DIFFICULTY_LEVEL + "=?";
 				
-				String[] selectionArgs = {Main.difficulty};
+				String[] selectionArgs = {Main.DIFFICULTY};
 	
 				// How you want the results sorted in the resulting Cursor
 				String sortOrder =
@@ -87,11 +90,33 @@ public class Questions extends Activity {
 				
 				cursor.moveToFirst();
 				
+				String rowId = cursor.getString(
+					    cursor.getColumnIndexOrThrow(Contract.Routes._ID)
+						);
+				Main.ROUTE_ID = Integer.parseInt(rowId);
 				questionSet = cursor.getString(
 					    cursor.getColumnIndexOrThrow(Contract.Routes.COLUMN_NAME_QUESTIONID_SET)
 						);
 				Main.QUESTIONID_SET = questionSet.split(",");
+				
+				//SQLiteDatabase db2 = dbHelper.getWritableDatabase();
+				
+				Time now = new Time();
+				now.setToNow();
+				ContentValues values = new ContentValues();
+				values.put(Contract.Routes.COLUMN_NAME_TIMESTAMP, now.toString());
+				
+				// Which row to update, based on the ID
+				selection = Contract.Routes._ID + " LIKE ?";
+				selectionArgs = new String[] { String.valueOf(rowId) };
+
+				int count = db.update(
+				    Contract.Routes.TABLE_NAME,
+				    values,
+				    selection,
+				    selectionArgs);
 			}
+			
 			questionId = Main.QUESTIONID_SET[++Main.QINDEX];
 			String[] projection = {
 			    Contract.Questions._ID,

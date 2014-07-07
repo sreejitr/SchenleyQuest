@@ -18,7 +18,7 @@ public class HintText extends Activity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		Main.TOTALSCORE -= 100;
+		Main.TOTALSCORE -= 20;
 		super.onCreate(savedInstanceState);
 		DBHelper dbHelper = new DBHelper(this);
 		try {

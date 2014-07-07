@@ -2,7 +2,10 @@ package edu.cmu.west.schenleyquest;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.text.format.Time;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
@@ -25,10 +28,32 @@ public class WinScreen extends Activity {
 		TextView message_text = (TextView)findViewById(R.id.textView_win_msg);
 		message_text.setText(message);	
 		
+		Time timeNow = new Time();
+		timeNow.setToNow();
+		
+		DBHelper dbHelper = new DBHelper(this);
+		
+		// Gets the data repository in write mode
+		SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+		// Create a new map of values, where column names are the keys
+		ContentValues values = new ContentValues();
+		values.put(Contract.HighScores.COLUMN_NAME_ROUTE_ID, Main.ROUTE_ID);
+		values.put(Contract.HighScores.COLUMN_NAME_DIFFICULTY_LEVEL, Main.DIFFICULTY);
+		values.put(Contract.HighScores.COLUMN_NAME_SCORE, Main.TOTALSCORE);
+		values.put(Contract.HighScores.COLUMN_NAME_TIMESTAMP, timeNow.toString());
+
+		// Insert the new row, returning the primary key value of the new row
+		long newRowId;
+		newRowId = db.insert(
+		         Contract.HighScores.TABLE_NAME,
+		         "null",
+		         values);
+		
 		TextView score_text = (TextView)findViewById(R.id.textView_score);
 		score_text.setText(score);		
 		
-		if(Main.difficulty.equals("easy"))
+		if(Main.DIFFICULTY.equals("easy"))
 		{
 			if(Main.TOTALSCORE >= 5400) {
 				//int imageResource = getResources().getIdentifier(uri_rookie, null, getPackageName());
@@ -36,9 +61,22 @@ public class WinScreen extends Activity {
 				imageview.setImageResource(R.drawable.rookie_badge);
 				//Drawable res = getResources().getDrawable(imageResource);
 				//imageview.setImageDrawable(res);
+				
+				values = new ContentValues();
+				values.put(Contract.Badges.COLUMN_NAME_BADGE, "easy");
+				values.put(Contract.Badges.COLUMN_NAME_ROUTE_ID, Main.ROUTE_ID);
+				values.put(Contract.Badges.COLUMN_NAME_DIFFICULTY_LEVEL, Main.DIFFICULTY);
+				values.put(Contract.Badges.COLUMN_NAME_TIMESTAMP, timeNow.toString());
+				values.put(Contract.Badges.COLUMN_NAME_NO_OF_BADGES, 1);
+
+				// Insert the new row, returning the primary key value of the new row
+				newRowId = db.insert(
+				         Contract.Badges.TABLE_NAME,
+				         "null",
+				         values);
 			}
 		}
-		else if(Main.difficulty.equals("medium"))
+		else if(Main.DIFFICULTY.equals("medium"))
 		{
 			if(Main.TOTALSCORE >= 16200) {
 				//int imageResource = getResources().getIdentifier(uri_experienced, null, getPackageName());
@@ -47,9 +85,21 @@ public class WinScreen extends Activity {
 				imageview.setImageResource(R.drawable.experienced_badge);
 				//Drawable res = getResources().getDrawable(imageResource);
 				//imageview.setImageDrawable(res);
+				values = new ContentValues();
+				values.put(Contract.Badges.COLUMN_NAME_BADGE, "medium");
+				values.put(Contract.Badges.COLUMN_NAME_ROUTE_ID, Main.ROUTE_ID);
+				values.put(Contract.Badges.COLUMN_NAME_DIFFICULTY_LEVEL, Main.DIFFICULTY);
+				values.put(Contract.Badges.COLUMN_NAME_TIMESTAMP, timeNow.toString());
+				values.put(Contract.Badges.COLUMN_NAME_NO_OF_BADGES, 1);
+
+				// Insert the new row, returning the primary key value of the new row
+				newRowId = db.insert(
+				         Contract.Badges.TABLE_NAME,
+				         "null",
+				         values);
 			}
 		}
-		else if(Main.difficulty.equals("hard"))
+		else if(Main.DIFFICULTY.equals("hard"))
 		{
 			if(Main.TOTALSCORE >= 32400) {
 				//int imageResource = getResources().getIdentifier(uri_expert, null, getPackageName());
@@ -58,6 +108,19 @@ public class WinScreen extends Activity {
 				imageview.setImageResource(R.drawable.expert_badge);
 				//Drawable res = getResources().getDrawable(imageResource);
 				//imageview.setImageDrawable(res);
+				
+				values = new ContentValues();
+				values.put(Contract.Badges.COLUMN_NAME_BADGE, "hard");
+				values.put(Contract.Badges.COLUMN_NAME_ROUTE_ID, Main.ROUTE_ID);
+				values.put(Contract.Badges.COLUMN_NAME_DIFFICULTY_LEVEL, Main.DIFFICULTY);
+				values.put(Contract.Badges.COLUMN_NAME_TIMESTAMP, timeNow.toString());
+				values.put(Contract.Badges.COLUMN_NAME_NO_OF_BADGES, 1);
+
+				// Insert the new row, returning the primary key value of the new row
+				newRowId = db.insert(
+				         Contract.Badges.TABLE_NAME,
+				         "null",
+				         values);
 			}
 		}
 		

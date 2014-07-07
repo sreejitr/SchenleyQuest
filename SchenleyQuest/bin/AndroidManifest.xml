@@ -33,7 +33,8 @@
 
         <activity
             android:name="edu.cmu.west.schenleyquest.Main"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -42,52 +43,76 @@
         </activity>
         <activity
             android:name="edu.cmu.west.schenleyquest.Questions"
-            android:label="@string/title_activity_questions" >
+            android:label="@string/title_activity_questions"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="edu.cmu.west.schenleyquest.Options"
-            android:label="@string/title_activity_options" >
+            android:label="@string/title_activity_options"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="edu.cmu.west.schenleyquest.Hints"
-            android:label="@string/title_activity_hints" >
+            android:label="@string/title_activity_hints"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="edu.cmu.west.schenleyquest.TransitionScreen"
-            android:label="@string/title_activity_transition_screen" >
+            android:label="@string/title_activity_transition_screen"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="edu.cmu.west.schenleyquest.WinScreen"
-            android:label="@string/title_activity_win_screen" >
+            android:label="@string/title_activity_win_screen"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="edu.cmu.west.schenleyquest.HintText"
-            android:label="@string/title_activity_hint_text" >
+            android:label="@string/title_activity_hint_text"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="edu.cmu.west.schenleyquest.DirectionHint"
-            android:label="@string/title_activity_direction_hint" >
+            android:label="@string/title_activity_direction_hint"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="edu.cmu.west.schenleyquest.Progress"
-            android:label="@string/title_activity_progress" >
+            android:label="@string/title_activity_progress"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity 
-            android:name="com.facebook.LoginActivity" 
-            android:label="@string/app_name">
+        <activity
+            android:name="com.facebook.LoginActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="edu.cmu.west.schenleyquest.PhotoSharing"
-            android:label="@string/title_activity_photo_sharing" >
+            android:label="@string/title_activity_photo_sharing"
+            android:screenOrientation="portrait" >
+        </activity>        
+        <activity
+            android:name="edu.cmu.west.schenleyquest.HighScores"
+            android:label="@string/title_activity_high_scores"
+            android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name="edu.cmu.west.schenleyquest.Badges"
+            android:label="@string/title_activity_badges"
+            android:screenOrientation="portrait" >
+        </activity>
+
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyCfXiJxurBNzuL6iOWg23LzIpFEM7VsBbU" />
+            android:value="AIzaSyCEhXJXWOyTvNFscf3ZweC2Tp73mQo3YHo" />
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/app_id" />
-        <provider android:authorities="com.facebook.app.NativeAppCallContentProvider1417809311816995"
-                  android:name="com.facebook.NativeAppCallContentProvider"
-                  android:exported="true"/>
+
+        <provider
+            android:name="com.facebook.NativeAppCallContentProvider"
+            android:authorities="com.facebook.app.NativeAppCallContentProvider1417809311816995"
+            android:exported="true" />
     </application>
+
 </manifest>

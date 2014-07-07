@@ -139,11 +139,11 @@ public class TransitionScreen extends Activity {
 				//answer_Label.setVisibility(View.GONE);
 				answer_Text.setVisibility(View.GONE);
 				
-				if(Main.difficulty.equals("easy")) {
+				if(Main.DIFFICULTY.equals("easy")) {
 					Main.TOTALSCORE += 1000;
 					message = "Congratulations, you have won 1000 points";
 				}
-				else if(Main.difficulty.equals("medium")) {
+				else if(Main.DIFFICULTY.equals("medium")) {
 					Main.TOTALSCORE += 2000;	
 					message = "Congratulations, you have won 2000 points";	
 				}

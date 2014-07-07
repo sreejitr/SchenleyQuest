@@ -59,7 +59,7 @@ GooglePlayServicesClient.OnConnectionFailedListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		Main.TOTALSCORE -= 300;
+		Main.TOTALSCORE -= 50;
 		
 		DBHelper dbHelper = new DBHelper(this);
 		try {
